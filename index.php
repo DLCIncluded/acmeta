@@ -179,6 +179,46 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
   from {opacity: 0;}
   to {opacity:1 ;}
 }
+
+.openModal {
+    cursor:pointer;
+    display:inline-block;
+    text-align:center;
+}
+.modal {
+    display:none;
+    position: fixed;
+    z-index:999;
+    padding-top:100px;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    overflow:auto;
+    background-color:rgba(0,0,0,0.4);
+}
+
+.modal_content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border:1px solid #888;
+    width:80%;
+}
+
+.close {
+    color: #aaa;
+    float:right;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration:none;
+    cursor:pointer;
+}
 </style>
 
 </head>
@@ -211,8 +251,14 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell">
-                <h2>Core Units (SS)</h2>
-                <p>They stand out from their element as the core unit of respective element</p>
+                <h2 class="openModal" id="openModalSS">Core Units<br>(SS)</h2>
+                <div class="modal" id="modal">
+                    <div class="modal_content">
+                        <span class="close">&times;</span>
+                        <p>They stand out from their element as the core unit of respective element</p>
+                    </div>
+                </div>
+                <!-- <p>They stand out from their element as the core unit of respective element</p> -->
             </div>
             <div class="main-cell">
                 <?php
@@ -476,5 +522,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 function togglePopup($id) {
   var popup = document.getElementById($id);
   popup.classList.toggle("show");
+}
+
+// Get the modal
+var modal = document.getElementById("modal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("openModalSS");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>
