@@ -1,6 +1,8 @@
 <?php
 ini_set('display_errors', '1');
 include_once("dbConn.php");
+
+//element id's
 //fire    = 1
 //water   = 2
 //thunder = 3
@@ -8,172 +10,26 @@ include_once("dbConn.php");
 //light   = 5
 //dark    = 6
 
-//Dark SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='6'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $dark_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $dark_ss .= '<div class="cell">';
-            $dark_ss .= '<div class="icon">';
-                $dark_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $dark_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $dark_ss .= '<div class="element-star star-' . $star . '">';
-                    $dark_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $dark_ss .= '</div>';
-            $dark_ss .= '</div>';
-        $dark_ss .= '</div>';
+//grades SS, S, A, B, C, D
+if(isset($_POST['grade']) && isset($_POST['id'])){
+    $grade = $_POST['grade'];
+    $id = $_POST['id'];
+    $sql = "UPDATE toons SET grade='".$grade."' WHERE id='".$id."'";
+    if($connection->query($sql)){
+        echo "successfully updated toon";
+    }else{
+        echo $connection->error;
     }
 }
-
-//Light SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='5'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $light_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $light_ss .= '<div class="cell">';
-            $light_ss .= '<div class="icon">';
-                $light_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $light_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $light_ss .= '<div class="element-star star-' . $star . '">';
-                    $light_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $light_ss .= '</div>';
-            $light_ss .= '</div>';
-        $light_ss .= '</div>';
-    }
-}
-
-//Fire SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='1'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $fire_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $fire_ss .= '<div class="cell">';
-            $fire_ss .= '<div class="icon">';
-                $fire_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $fire_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $fire_ss .= '<div class="element-star star-' . $star . '">';
-                    $fire_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $fire_ss .= '</div>';
-            $fire_ss .= '</div>';
-        $fire_ss .= '</div>';
-    }
-}
-
-//Water SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='2'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $water_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $water_ss .= '<div class="cell">';
-            $water_ss .= '<div class="icon">';
-                $water_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $water_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $water_ss .= '<div class="element-star star-' . $star . '">';
-                    $water_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $water_ss .= '</div>';
-            $water_ss .= '</div>';
-        $water_ss .= '</div>';
-    }
-}
-
-//Thunder SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='3'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $thunder_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $thunder_ss .= '<div class="cell">';
-            $thunder_ss .= '<div class="icon">';
-                $thunder_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $thunder_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $thunder_ss .= '<div class="element-star star-' . $star . '">';
-                    $thunder_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $thunder_ss .= '</div>';
-            $thunder_ss .= '</div>';
-        $thunder_ss .= '</div>';
-    }
-}
-
-//Wind SS
-$sql = "SELECT * FROM toons WHERE grade='ss' AND element='4'";
-$result = $connection->query($sql);
-if($result->num_rows >= 1){
-    $wind_ss = '';
-    while($row = $result->fetch_assoc()){
-        $id = $row['id'];
-        $name = $row['name'];
-        $img = $row['img'];
-        $job = $row['job'];
-        $star = $row['star'];
-        $element = $row['element'];
-        $grade = $row['grade'];
-
-        $wind_ss .= '<div class="cell">';
-            $wind_ss .= '<div class="icon">';
-                $wind_ss .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                $wind_ss .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                $wind_ss .= '<div class="element-star star-' . $star . '">';
-                    $wind_ss .= '<div class="element-icon element-' . $element . '"></div>';
-                $wind_ss .= '</div>';
-            $wind_ss .= '</div>';
-        $wind_ss .= '</div>';
-    }
-}
-
-function pullContent($grd,$ele) {
-
-    global $connection;
+/*
+function pullContent($grd,$ele) {//function to pull the info from the DB
+    global $connection;//pull the connection variable from DbConn file
     $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."'";
     $result = $connection->query($sql);
     $cell_data = '';
     if($result->num_rows >= 1){
-
-        
         while($row = $result->fetch_assoc()){
+            //pull info from DB
             $id = $row['id'];
             $name = $row['name'];
             $img = $row['img'];
@@ -181,7 +37,7 @@ function pullContent($grd,$ele) {
             $star = $row['star'];
             $element = $row['element'];
             $grade = $row['grade'];
-
+            //create the data for the cell
             $cell_data .= '<div class="cell">';
                 $cell_data .= '<div class="icon">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
@@ -191,17 +47,66 @@ function pullContent($grd,$ele) {
                     $cell_data .= '</div>';
                 $cell_data .= '</div>';
             $cell_data .= '</div>';
-            
         }
-        
     }
     return $cell_data;
-    
-
 }
+*/
+function pullContent($grd,$ele) {//function to pull the info from the DB
+    global $connection;//pull the connection variable from DbConn file
+    $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."'";
+    $result = $connection->query($sql);
+    $cell_data = '';
+    if($result->num_rows >= 1){
+        while($row = $result->fetch_assoc()){
+            //pull info from DB
+            $id = $row['id'];
+            $name = $row['name'];
+            $img = $row['img'];
+            $job = $row['job'];
+            $star = $row['star'];
+            $element = $row['element'];
+            $grade = $row['grade'];
+
+            $sel_ss = ($grade == "ss") ? "selected='selected'" : " ";
+            $sel_s = ($grade == "s") ? "selected='selected'" : " ";
+            $sel_a = ($grade == "a") ? "selected='selected'" : " ";
+            $sel_b = ($grade == "b") ? "selected='selected'" : " ";
+            $sel_c = ($grade == "c") ? "selected='selected'" : " ";
+            $sel_d = ($grade == "d") ? "selected='selected'" : " ";
 
 
-
+            //create the data for the cell
+            $cell_data .= '<div class="cell">';
+                $cell_data .= '<div class="icon" onclick="togglePopup('.$id.')">';
+                    $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
+                    $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
+                    $cell_data .= '<div class="element-star star-' . $star . '">';
+                        $cell_data .= '<div class="element-icon element-' . $element . '"></div>';
+                    $cell_data .= '</div>';
+                    
+                $cell_data .= '</div>';
+                $cell_data .= '<div class="popuptext" id="'.$id.'">';
+                        $cell_data .= 'Grade:';
+                        $cell_data .= '<form action="#" method="POST">';
+                            $cell_data .= '<select name="grade">';
+                                $cell_data .= '<option value="ss" '.$sel_ss.'>SS</option>';
+                                $cell_data .= '<option value="s" '.$sel_s.'>S</option>';
+                                $cell_data .= '<option value="a" '.$sel_a.'>A</option>';
+                                $cell_data .= '<option value="b" '.$sel_b.'>B</option>';
+                                $cell_data .= '<option value="c" '.$sel_c.'>C</option>';
+                                $cell_data .= '<option value="d" '.$sel_d.'>D</option>';
+                            $cell_data .= '</select>';
+                            $cell_data .= '<input type="hidden" name="id" value="'.$id.'">';
+                            $cell_data .= '<input type="submit" value="Save">';
+                            $cell_data .= '<span style="display:inline-block; cursor:pointer" onclick="togglePopup('.$id.')">Close</span>';
+                        $cell_data .= '</form>';
+                    $cell_data .= '</div>';
+            $cell_data .= '</div>';
+        }
+    }
+    return $cell_data;
+}
 ?>
 
 
@@ -213,6 +118,69 @@ function pullContent($grd,$ele) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Mikes Dumb</title>
+
+    <style>
+/* Popup container - can be anything you want */
+.icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: relative;
+  z-index: 1;
+  top: 10%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+.popuptext::after {
+  bottom: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-bottom-color: #555;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+/* Toggle this class - hide and show the popup */
+.show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity:1 ;}
+}
+</style>
+
 </head>
 <body>
     <div class="container">
@@ -502,3 +470,11 @@ function pullContent($grd,$ele) {
     </div>
 </body>
 </html>
+
+<script>
+// When the user clicks on div, open the popup
+function togglePopup($id) {
+  var popup = document.getElementById($id);
+  popup.classList.toggle("show");
+}
+</script>

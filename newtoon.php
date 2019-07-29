@@ -13,207 +13,205 @@ if(isset($_POST['name'])){
     }else{
         echo $connection->error;
     }
-
 }
 ?>
 
-    <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css">
+<!-- specific styles for only this file -->
+
 <style>
+    .new-toon {
+        margin-left:20px;
+        margin-top:20px;
+    }
 
-.new-toon {
-    margin-left:20px;
-    margin-top:20px;
-}
+    [type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+    }
 
-[type=radio] { 
-  position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
+    /* IMAGE STYLES */
+    [type=radio] + img {
+    cursor: pointer;
+    }
 
-/* IMAGE STYLES */
-[type=radio] + img {
-  cursor: pointer;
-}
+    /* CHECKED STYLES */
+    [type=radio]:checked + img {
+    outline: 2px solid #f00;
+    }
 
-/* CHECKED STYLES */
-[type=radio]:checked + img {
-  outline: 2px solid #f00;
-}
-[type=radio]:checked + div {
-  outline: 2px solid #f00;
-}
+    [type=radio]:checked + div {
+    outline: 2px solid #f00;
+    }
 
-.scrollbox {
-    height: 300px;
-    width:455px;
-    display:flex;
-    flex-wrap: wrap;
-    overflow: scroll;
-}
+    .scrollbox {
+        height: 300px;
+        width:455px;
+        display:flex;
+        flex-wrap: wrap;
+        overflow: scroll;
+    }
 
-.scrollbox img {
-    margin: 2px;
-}
+    .scrollbox img {
+        margin: 2px;
+    }
 
-.element-select {
-    display:flex;
-    flex-wrap: wrap;
-    margin-bottom:20px;
-    margin-top:20px;
-    align-content: center;
-}
+    .element-select {
+        display:flex;
+        flex-wrap: wrap;
+        margin-bottom:20px;
+        margin-top:20px;
+        align-content: center;
+    }
 
-.element-select div {
-    margin: 2px;
-}
+    .element-select div {
+        margin: 2px;
+    }
 
-.star-box {
-    display:flex;
-    margin-top:20px;
-}
+    .star-box {
+        display:flex;
+        margin-top:20px;
+    }
 
-.stars-1 {
-    background-image: url('img/assets/unit-stars.png');
-    background-position: 0 0;
-    width:60px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-size: 600%;
-    margin-bottom:5px;
-    margin-left:10px;
-    padding:0;
-}
+    .stars-1 {
+        background-image: url('img/assets/unit-stars.png');
+        background-position: 0 0;
+        width:60px;
+        height:20px;
+        background-repeat: no-repeat;
+        background-size: 600%;
+        margin-bottom:5px;
+        margin-left:10px;
+        padding:0;
+    }
 
-.stars-2 {
-    background-image: url('img/assets/unit-stars.png');
-    background-position: 20% 0;
-    width:60px;
-    height:25px;
-    background-repeat: no-repeat;
-    background-size: 600%;
-    margin-bottom:5px;   
-    margin-left:10px;
-    height:20px;
-}
+    .stars-2 {
+        background-image: url('img/assets/unit-stars.png');
+        background-position: 20% 0;
+        width:60px;
+        height:25px;
+        background-repeat: no-repeat;
+        background-size: 600%;
+        margin-bottom:5px;   
+        margin-left:10px;
+        height:20px;
+    }
 
-.stars-3 {
-    background-image: url('img/assets/unit-stars.png');
-    background-position: 40% 0;
-    width:60px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-size: 600%;
-    margin-bottom:5px;
-    margin-left:10px;
-}
+    .stars-3 {
+        background-image: url('img/assets/unit-stars.png');
+        background-position: 40% 0;
+        width:60px;
+        height:20px;
+        background-repeat: no-repeat;
+        background-size: 600%;
+        margin-bottom:5px;
+        margin-left:10px;
+    }
 
-.stars-4 {
-    background-image: url('img/assets/unit-stars.png');
-    background-position: 60% 0;
-    width:60px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-size: 600%;
-    margin-bottom:5px;
-    margin-left:10px;
-}
+    .stars-4 {
+        background-image: url('img/assets/unit-stars.png');
+        background-position: 60% 0;
+        width:60px;
+        height:20px;
+        background-repeat: no-repeat;
+        background-size: 600%;
+        margin-bottom:5px;
+        margin-left:10px;
+    }
 
-.stars-5 {
-    background-image: url('img/assets/unit-stars.png');
-    background-position: 80% 0;
-    width:60px;
-    height:20px;
-    background-repeat: no-repeat;
-    background-size: 600%;
-    margin-bottom:5px;
-    margin-left:10px;
-}
-
+    .stars-5 {
+        background-image: url('img/assets/unit-stars.png');
+        background-position: 80% 0;
+        width:60px;
+        height:20px;
+        background-repeat: no-repeat;
+        background-size: 600%;
+        margin-bottom:5px;
+        margin-left:10px;
+    }
 </style>
 
 
 <div class="container">
-<form class="new-toon" action="#" method="POST">
-<h1>
-    Add new toon
-</h1>
-<input type="text" name="name" placeholder="Name" />
+    <form class="new-toon" action="#" method="POST">
+        <h1>
+            Add new toon
+        </h1>
+        <input type="text" name="name" placeholder="Name" />
 
 
-<div class="element-select">
-    Element:
-    <label><input type="radio" name="element" value="1"></input><div class="fire"> </div></label>
-    <label><input type="radio" name="element" value="2"></input><div class="water"> </div></label>
-    <label><input type="radio" name="element" value="3"></input><div class="thunder"> </div></label>
-    <label><input type="radio" name="element" value="4"></input><div class="wind"> </div></label>
-    <label><input type="radio" name="element" value="5"></input><div class="light"> </div></label>
-    <label><input type="radio" name="element" value="6"></input><div class="dark"> </div></label>
-</div>
+        <div class="element-select">
+            Element:
+            <label><input type="radio" name="element" value="1"></input><div class="fire"> </div></label>
+            <label><input type="radio" name="element" value="2"></input><div class="water"> </div></label>
+            <label><input type="radio" name="element" value="3"></input><div class="thunder"> </div></label>
+            <label><input type="radio" name="element" value="4"></input><div class="wind"> </div></label>
+            <label><input type="radio" name="element" value="5"></input><div class="light"> </div></label>
+            <label><input type="radio" name="element" value="6"></input><div class="dark"> </div></label>
+        </div>
 
-Image:
-<div class="scrollbox">
-<?php
- 
- $fileList = glob('img/toons/*');
- foreach($fileList as $filename){
-     //Use the is_file function to make sure that it is not a directory.
-     if(is_file($filename)){
-
-        //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
-        ?>
-        <label><input type="radio" name="img" value="<?php echo basename($filename) ?>"><img src="<?php echo $filename ?>" alt="" width="58px" height="58px"><br></label>
+        Image:
+        <div class="scrollbox">
         <?php
-     }   
- }
-?>
-</div>
-<br>
+        
+        $fileList = glob('img/toons/*');
+        foreach($fileList as $filename){
+            //Use the is_file function to make sure that it is not a directory.
+            if(is_file($filename)){
 
-
-Job:
-<div class="scrollbox">
-<?php
- 
- $fileList = glob('img/jobs/*');
- foreach($fileList as $filename){
-     //Use the is_file function to make sure that it is not a directory.
-     if(is_file($filename)){
-
-        //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
+                //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
+                ?>
+                <label><input type="radio" name="img" value="<?php echo basename($filename) ?>"><img src="<?php echo $filename ?>" alt="" width="58px" height="58px"><br></label>
+                <?php
+            }   
+        }
         ?>
-        <label><input type="radio" name="job" value="<?php echo basename($filename) ?>"><img src="<?php echo $filename ?>" alt="" width="48px" height="48px"><br></label>
+        </div>
+        <br>
+
+
+        Job:
+        <div class="scrollbox">
         <?php
-     }   
- }
-?>
-</div>
+        
+        $fileList = glob('img/jobs/*');
+        foreach($fileList as $filename){
+            //Use the is_file function to make sure that it is not a directory.
+            if(is_file($filename)){
 
- 
-<div class="star-box">
-Star:
-    <label><input type="radio" name="star" value="1"></input><div class="stars-1"> </div></label>
-    <label><input type="radio" name="star" value="2"></input><div class="stars-2"> </div></label>
-    <label><input type="radio" name="star" value="3"></input><div class="stars-3"> </div></label>
-    <label><input type="radio" name="star" value="4"></input><div class="stars-4"> </div></label>
-    <label><input type="radio" name="star" value="5"></input><div class="stars-5"> </div></label>
-</div>
+                //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
+                ?>
+                <label><input type="radio" name="job" value="<?php echo basename($filename) ?>"><img src="<?php echo $filename ?>" alt="" width="48px" height="48px"><br></label>
+                <?php
+            }   
+        }
+        ?>
+        </div>
 
-Grade:
-<select name="grade">
-    <option value="SS">SS</option>
-    <option value="S">S</option>
-    <option value="a">A</option>
-    <option value="b">B</option>
-    <option value="c">C</option>
-    <option value="d">D</option>
-</select>**will be changable later**
-<br>
-<br>
+        
+        <div class="star-box">
+        Star:
+            <label><input type="radio" name="star" value="1"></input><div class="stars-1"> </div></label>
+            <label><input type="radio" name="star" value="2"></input><div class="stars-2"> </div></label>
+            <label><input type="radio" name="star" value="3"></input><div class="stars-3"> </div></label>
+            <label><input type="radio" name="star" value="4"></input><div class="stars-4"> </div></label>
+            <label><input type="radio" name="star" value="5"></input><div class="stars-5"> </div></label>
+        </div>
+        <br>
+        Grade:
+        <select name="grade">
+            <option value="ss">SS</option>
+            <option value="s">S</option>
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+        </select>**will be changable later**
+        <br>
+        <br>
 
-<input type="submit">
-</form>
-<br>
-<br>
+        <input type="submit" value="Create">
+    </form>
 </div>
