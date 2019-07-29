@@ -1,0 +1,184 @@
+body {
+    padding:0;
+    margin:0;
+}
+
+.container {
+    position: relative;
+    margin:auto;
+    width:80%;
+    padding:20px 20px;
+}
+
+.row {
+    margin:0;
+    padding:0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-cell {
+    display:flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    width:14%;
+    flex-shrink: 1;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+}
+
+.main-cell:first-child {
+    border-left: none;
+    border-top: none;
+}
+
+
+
+
+.cell {
+    padding:5px;
+    flex-shrink: 1;
+    margin-bottom: 3px;
+}
+
+.icon {
+    position: relative;
+}
+
+.toon {
+    width:58px;
+    height:auto;
+    border-radius: 20px;
+}
+
+
+.icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom:0;
+    right:0;
+    z-index: 3;
+    background: url('../img/assets/unit-border.png') no-repeat;
+    background-size: 58px;
+}
+
+.job-icon {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    height: 24px;
+    width: 24px;
+    z-index: 5;
+}
+
+.element-star {
+    position: absolute;
+    left: 0;
+    bottom:0;
+    right:0;
+    z-index: 4;
+}
+
+.element-star::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    left: 25px;
+    bottom: 0;
+    z-index: 8;
+    background-image: url('../img/assets/unit-stars.png');
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 45px;
+    background-size: 600%;
+}
+
+.element-icon {
+    background: url('../img/assets/unit-elements.png') no-repeat;
+    background-size: 200%;
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
+}
+
+.element-1 {
+    background-position: 0 0; 
+}
+
+.element-2 {
+    background-position: 100% 0;
+}
+
+.element-3 {
+    background-position: 0 50%;
+}
+
+.element-4 {
+    background-position: 100% 50%;
+}
+
+.element-5 {
+    background-position: 0 100%;
+}
+
+.element-6 {
+    background-position: 100% 100%;
+}
+
+.star-1::after {
+    background-position: 0 0!important;
+}
+
+.star-2::after {
+    background-position: 20% 0;
+}
+
+.star-3::after {
+    background-position: 40% 0;
+}
+
+.star-4::after {
+    background-position: 60% 0;
+}
+
+.star-5::after {
+    background-position: 80% 0;
+}
+
+.light,.dark,.fire,.water,.thunder,.wind {
+    background: url('../img/assets/unit-elements.png');
+    background-repeat: no-repeat;
+    padding:0;
+    height: 58px;
+    width: 58px;
+}
+
+.light {
+    background-position:  0 -116px;
+}
+
+.dark {
+    background-position:  -58px -116px;
+}
+ 
+.fire {
+    background-position:  0 0;
+}
+
+.water {
+    background-position:  -58px 0px;
+}
+
+.thunder {
+    background-position:  0 -58px;
+}
+
+.wind {
+    background-position:  -58px -58px;
+}
