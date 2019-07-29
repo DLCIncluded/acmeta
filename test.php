@@ -134,7 +134,7 @@ if(isset($_POST['name'])){
 </style>
 
 
-
+<div class="container">
 <form class="new-toon" action="#" method="POST">
 <h1>
     Add new toon
@@ -216,3 +216,4 @@ Grade:
 </form>
 <br>
 <br>
+</div>

@@ -165,16 +165,14 @@ if($result->num_rows >= 1){
 }
 
 function pullContent($grd,$ele) {
-   // echo "test";
-   // echo $grd;
-   // echo $ele;
+
     global $connection;
     $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."'";
-  //  echo $sql;
     $result = $connection->query($sql);
+    $cell_data = '';
     if($result->num_rows >= 1){
 
-        $cell_data = '';
+        
         while($row = $result->fetch_assoc()){
             $id = $row['id'];
             $name = $row['name'];
@@ -250,33 +248,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                   echo pullContent("ss", "6");//dark ss
+                   echo pullContent("ss", "6");//dark_ss
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_ss;
+                    //echo $light_ss;
+                    echo pullContent("ss", "5");//light_ss
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_ss;
+                    //echo $fire_ss;
+                    echo pullContent("ss", "1");//fire_ss
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_ss;
+                    //echo $water_ss;
+                    echo pullContent("ss", "2");//water_ss
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_ss;
+                    //echo $thunder_ss;
+                    echo pullContent("ss", "3");//thunder_ss
                 ?>
                 
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_ss;
+                    //echo $wind_ss;
+                    echo pullContent("ss", "4");//wind_ss
                 ?>
             </div>
         </div>
@@ -288,32 +291,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                    echo $dark_s;
+                    //echo $dark_s;
+                    echo pullContent("s", "6");//dark_s
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_s;
+                    //echo $light_s;
+                    echo pullContent("s", "5");//light_s
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_s;
+                    //echo $fire_s;
+                    echo pullContent("s", "1");//fire_s
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_s;
+                    //echo $water_s;
+                    echo pullContent("s", "2");//water_s
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_s;
+                    //echo $thunder_s;
+                    echo pullContent("s", "3");//thunder_s
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_s;
+                    //echo $wind_s;
+                    echo pullContent("s", "4");//wind_s
                 ?>
             </div>
         </div>
@@ -325,32 +334,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                    echo $dark_a;
+                    //echo $dark_a;
+                    echo pullContent("a", "6");//dark_a
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_a;
+                    //echo $light_a;
+                    echo pullContent("a", "5");//light_a
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_a;
+                    //echo $fire_a;
+                    echo pullContent("a", "1");//fire_a
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_a;
+                    //echo $water_a;
+                    echo pullContent("a", "2");//water_a
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_a;
+                    //echo $thunder_a;
+                    echo pullContent("a", "3");//thunder_a
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_a;
+                    //echo $wind_a;
+                    echo pullContent("a", "4");//wind_a
                 ?>
             </div>
         </div>
@@ -362,32 +377,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                    echo $dark_b;
+                    //echo $dark_b;
+                    echo pullContent("b", "6");//dark_b
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_b;
+                    //echo $light_b;
+                    echo pullContent("b", "5");//light_b
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_b;
+                    //echo $fire_b;
+                    echo pullContent("b", "1");//fire_b
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_b;
+                    //echo $water_b;
+                    echo pullContent("b", "2");//water_b
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_b;
+                    //echo $thunder_b;
+                    echo pullContent("b", "3");//thunder_b
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_b;
+                    //echo $wind_b;
+                    echo pullContent("b", "4");//wind_b
                 ?>
             </div>
         </div>
@@ -399,32 +420,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                    echo $dark_c;
+                    //echo $dark_c;
+                    echo pullContent("c", "6");//dark_c
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_c;
+                    //echo $light_c;
+                    echo pullContent("c", "5");//light_c
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_c;
+                    //echo $fire_c;
+                    echo pullContent("c", "1");//fire_c
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_c;
+                    //echo $water_c;
+                    echo pullContent("c", "2");//water_c
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_c;
+                    //echo $thunder_c;
+                    echo pullContent("c", "3");//thunder_c
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_c;
+                    //echo $wind_c;
+                    echo pullContent("c", "4");//wind_c
                 ?>
             </div>
         </div>
@@ -436,32 +463,38 @@ function pullContent($grd,$ele) {
             </div>
             <div class="main-cell">
                 <?php
-                    echo $dark_d;
+                    //echo $dark_d;
+                    echo pullContent("d", "6");//dark_d
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $light_d;
+                    //echo $light_d;
+                    echo pullContent("d", "5");//light_d
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $fire_d;
+                    //echo $fire_d;
+                    echo pullContent("d", "1");//fire_d
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $water_d;
+                    //echo $water_d;
+                    echo pullContent("d", "2");//water_d
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $thunder_d;
+                    //echo $thunder_d;
+                    echo pullContent("d", "3");//thunder_d
                 ?>
             </div>
             <div class="main-cell">
                 <?php
-                    echo $wind_d;
+                    //echo $wind_d;
+                    echo pullContent("d", "4");//wind_d
                 ?>
             </div>
         </div>
