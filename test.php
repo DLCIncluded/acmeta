@@ -609,6 +609,24 @@ $(document).ready(function(){
 		}
 	});  
 });
+
+$(document).ready(function(){	
+	$(".main-cell.reorder-gallery").sortable({		
+		update: function(event,ui) {
+            if (this === ui.item.parent()[0]) {
+                if (ui.sender !== null) {
+                    // the movement was from one container to another - do something to process it
+                    // ui.sender will be the reference to original container
+                    updateGrade();
+                } else {
+                    // the move was performed within the same container - do your "same container" stuff
+                    updateOrder();
+                }
+            }
+        }
+	});  
+});
+
 function updateOrder() {	
 	var item_order = new Array();
 	$('.main-cell.reorder-gallery .cell').each(function() {
