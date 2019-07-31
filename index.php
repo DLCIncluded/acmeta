@@ -77,8 +77,8 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
 
             //create the data for the cell
-            $cell_data .= '<div class="cell ui-sortable-handle" id='.$id.'>';
-                $cell_data .= '<div class="icon" onclick="togglePopup('.$id.')">';
+            $cell_data .= '<div class="cell ui-sortable-handle" id="'.$id.'" grade="'.$grade.'">';
+                $cell_data .= '<div class="icon" oncontextmenu="togglePopup('.$id.');return false;">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
                     $cell_data .= '<div class="element-star star-' . $star . '">';
@@ -598,7 +598,7 @@ window.onclick = function(event) {
     modalD.style.display = "none";
   }
 }
-
+/*
 $(document).ready(function(){	
 	$(".main-cell.reorder-gallery").sortable({		
 		update: function( event, ui ) {
@@ -606,6 +606,29 @@ $(document).ready(function(){
 		}
 	});  
 });
+*/
+
+$( ".main-cell.reorder-gallery" ).sortable({
+    connectWith: ".main-cell"
+});
+$(document).ready(function(){	
+	$(".main-cell.reorder-gallery").sortable({		
+		update: function(event,ui) {
+            if (this === ui.item.parent()[0]) {
+                if (ui.sender !== null) {
+                    // the movement was from one container to another - do something to process it
+                    // ui.sender will be the reference to original container
+                    updateGrade();
+                } else {
+                    // the move was performed within the same container - do your "same container" stuff
+                    updateOrder();
+                }
+            }
+        }
+	});  
+});
+
+
 function updateOrder() {	
 	var item_order = new Array();
 	$('.main-cell.reorder-gallery .cell').each(function() {
@@ -620,6 +643,30 @@ function updateOrder() {
 		success: function(data){			
 		}
 	});
+}
+
+function updateGrade() {	
+	var item_grade = new Array();
+    var grade, id;
+	$('.main-cell.reorder-gallery .cell').each(function() {
+        grade = $(this).attr("grade").toString();
+        cellid = $(this).attr("id").toString();
+        //console.log(grade);
+        //console.log(id);
+		item_grade.push({ id : cell });
+        console.log(item_grade);
+	});
+	var order_string = 'grade='+item_grade;
+    /*
+	$.ajax({
+		type: "GET",
+		url: "updateorder.php",
+		data: order_string,
+		cache: false,
+		success: function(data){			
+		}
+	});
+    */
 }
 
 </script>

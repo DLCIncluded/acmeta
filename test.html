@@ -58,29 +58,69 @@
                     </div>
                 </div>
             </div>
+            <div class="main-cell reorder-gallery">
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/acha.png" alt="acha" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alai.png" alt="alai" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/albe.png" alt="albe" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alex.png" alt="alex" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alfr.png" alt="alfr" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div>		
-        <div class="gallery">
-            <ul class="reorder-gallery">
-
-                <li id="1" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/alai.png" alt=""></a></li>
-                <li id="2" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/alfr.png" alt=""></a></li>
-                <li id="3" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/aot-mika.png" alt=""></a></li>
-                <li id="4" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/cada.png" alt=""></a></li>
-            </ul>
-        </div>
-    </div>
-
 
     <script>
+    $( ".main-cell.reorder-gallery" ).sortable({
+        connectWith: ".main-cell"
+    });
+ 
     $(document).ready(function(){	
         $(".main-cell.reorder-gallery").sortable({		
             update: function( event, ui ) {
-                updateOrder();
+                //updateOrder();
             }
         });  
     });
+
     function updateOrder() {	
         var item_order = new Array();
         $('ul.reorder-gallery li').each(function() {

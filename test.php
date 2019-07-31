@@ -599,6 +599,9 @@ window.onclick = function(event) {
   }
 }
 
+$( ".main-cell.reorder-gallery" ).sortable({
+    connectWith: ".main-cell"
+});
 $(document).ready(function(){	
 	$(".main-cell.reorder-gallery").sortable({		
 		update: function( event, ui ) {
