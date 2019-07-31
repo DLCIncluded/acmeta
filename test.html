@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/stylestest.css">
+    <title>Mikes Dumb</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="main-cell reorder-gallery">
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/acha.png" alt="acha" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alai.png" alt="alai" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/albe.png" alt="albe" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alex.png" alt="alex" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cell ui-sortable-handle">
+                    <div class="icon">
+                        <img src="img/toons/alfr.png" alt="alfr" class="toon">
+                        <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
+                        <div class="element-star star-5">
+                            <div class="element-icon element-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>		
+        <div class="gallery">
+            <ul class="reorder-gallery">
+
+                <li id="1" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/alai.png" alt=""></a></li>
+                <li id="2" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/alfr.png" alt=""></a></li>
+                <li id="3" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/aot-mika.png" alt=""></a></li>
+                <li id="4" class="ui-sortable-handle"><a href="javascript:void(0);"><img src="img/toons/cada.png" alt=""></a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+    $(document).ready(function(){	
+        $(".main-cell.reorder-gallery").sortable({		
+            update: function( event, ui ) {
+                updateOrder();
+            }
+        });  
+    });
+    function updateOrder() {	
+        var item_order = new Array();
+        $('ul.reorder-gallery li').each(function() {
+            item_order.push($(this).attr("id"));
+        });
+        var order_string = 'order='+item_order;
+        $.ajax({
+            type: "POST",
+            url: "update_order.php",
+            data: order_string,
+            cache: false,
+            success: function(data){			
+            }
+        });
+    }
+    </script>
+</body>
+</html>

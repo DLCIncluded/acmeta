@@ -54,7 +54,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 */
 function pullContent($grd,$ele) {//function to pull the info from the DB
     global $connection;//pull the connection variable from DbConn file
-    $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."'";
+    $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."' ORDER BY displayorder";
     $result = $connection->query($sql);
     $cell_data = '';
     if($result->num_rows >= 1){
@@ -77,7 +77,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
 
             //create the data for the cell
-            $cell_data .= '<div class="cell">';
+            $cell_data .= '<div class="cell ui-sortable-handle" id='.$id.'>';
                 $cell_data .= '<div class="icon" onclick="togglePopup('.$id.')">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
@@ -118,6 +118,8 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/2e1be1b97d.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <title>Mikes Dumb</title>
 
     <style>
@@ -288,7 +290,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                     echo pullContent("ss", "5");//light_ss
                 ?>
             </div>
-            <div class="main-cell red-1">
+            <div class="main-cell red-1 reorder-gallery">
                 <?php
                     //echo $fire_ss;
                     echo pullContent("ss", "1");//fire_ss
@@ -597,5 +599,27 @@ window.onclick = function(event) {
   }
 }
 
+$(document).ready(function(){	
+	$(".main-cell.reorder-gallery").sortable({		
+		update: function( event, ui ) {
+			updateOrder();
+		}
+	});  
+});
+function updateOrder() {	
+	var item_order = new Array();
+	$('.main-cell.reorder-gallery .cell').each(function() {
+		item_order.push($(this).attr("id"));
+	});
+	var order_string = 'order='+item_order;
+	$.ajax({
+		type: "GET",
+		url: "updateorder.php",
+		data: order_string,
+		cache: false,
+		success: function(data){			
+		}
+	});
+}
 
 </script>

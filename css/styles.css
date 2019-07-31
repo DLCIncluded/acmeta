@@ -2,7 +2,9 @@ body {
     padding:0;
     margin:0;
 }
-
+div {
+    box-sizing: border-box;
+  }
 .container {
     box-sizing: border-box;
     position: relative;
@@ -20,12 +22,10 @@ body {
 
 .main-cell {
     display:flex;
-    justify-content: space-evenly;
     flex-wrap: wrap;
     width:14%;
-    flex-shrink: 1;
-    border-left: 1px solid black;
-    border-top: 1px solid black;
+    /*border-left: 1px solid black;
+    border-top: 1px solid black;*/
 }
 
 .main-cell:first-child {
@@ -33,13 +33,11 @@ body {
     border-top: none;
 }
 
-
-
-
 .cell {
     padding:5px;
-    flex-shrink: 1;
     margin-bottom: 3px;
+    width:53px;
+    height:53px;
 }
 
 .icon {
@@ -47,7 +45,7 @@ body {
 }
 
 .toon {
-    width:58px;
+    width:48px;
     height:auto;
     border-radius: 20px;
 }
@@ -63,7 +61,7 @@ body {
     right:0;
     z-index: 3;
     background: url('../img/assets/unit-border.png') no-repeat;
-    background-size: 58px;
+    background-size: 48px;
 }
 
 .job-icon {
@@ -87,15 +85,15 @@ body {
     content: "";
     display: block;
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 0;
-    left: 25px;
+    left: 17px;
     bottom: 0;
     z-index: 8;
     background-image: url('../img/assets/unit-stars.png');
     background-repeat: no-repeat;
     height: 40px;
-    width: 45px;
+    width: 40px;
     background-size: 600%;
 }
 
@@ -103,8 +101,8 @@ body {
     background: url('../img/assets/unit-elements.png') no-repeat;
     background-size: 200%;
     display: inline-block;
-    height: 24px;
-    width: 24px;
+    height: 16px;
+    width: 16px;
     vertical-align: middle;
 }
 
@@ -182,4 +180,184 @@ body {
 
 .wind {
     background-position:  -58px -58px;
+}
+
+.header-cell {
+    justify-content: center;
+}
+
+.openModal {
+    text-decoration: underline;
+}
+
+.info {
+    color:#2385BA;
+    position:relative;
+    z-index:999;
+    overflow:hidden;
+    list-style:none;
+    padding:0;
+    margin:0 0 0.25em;
+}
+
+.info:before {
+    content:"i";
+    left:3px;
+    width:16px;
+    height:16px;
+    margin-top:-8px;
+    font-size:14px;
+    font-weight:bold;
+    font-style:italic;
+    line-height:15px;
+    text-align:center;
+    color:#fff;
+    background:#2385BA;
+    /* css3 */
+    -webkit-border-radius:16px;
+    -moz-border-radius:16px;
+    border-radius:16px;
+}
+/*
+Color ramps generated: http://www.zonums.com/online/color_ramp/
+purple: 
+140, 44, 199
+4
+193, 162, 212
+
+grey
+126, 126, 126
+4
+242, 242, 242
+*/
+.purple {
+    background-color: #8a26c9;
+}
+.purple-1 {
+    background-color: #8c2cc7;
+}
+.purple-2 {
+    background-color: #9643C9;
+}
+.purple-3 {
+    background-color: #A15BCC;
+}
+.purple-4 {
+    background-color: #AB72CE;
+}
+.purple-5 {
+    background-color: #B68AD1;
+}
+.purple-6 {
+    background-color: #C1A2D4;
+}
+
+.grey {
+    background-color: #727171;
+}
+.grey-1 {
+    background-color: #7e7e7e;
+}
+.grey-2 {
+    background-color: #959595;
+}
+.grey-3 {
+    background-color: #ACACAC;
+}
+.grey-4 {
+    background-color: #C3C3C3;
+}
+.grey-5 {
+    background-color: #DADADA;
+}
+.grey-6 {
+    background-color: #f2f2f2;
+}
+
+.red {
+    background-color: rgb(230, 2, 2);
+}
+.red-1 {
+    background-color: #FF0000;
+}
+.red-2 {
+    background-color: #FF1B1B;
+}
+.red-3 {
+    background-color: #FF3737;
+}
+.red-4 {
+    background-color: #FF5252;
+}
+.red-5 {
+    background-color: #FF6E6E;
+}
+.red-6 {
+    background-color: #FF8A8A;
+}
+
+.blue {
+    background-color: #0077ff;
+}
+.blue-1 {
+    background-color: #0094ff;
+}
+.blue-2 {
+    background-color: #1B9FFF;
+}
+.blue-3 {
+    background-color: #36AAFF;
+}
+.blue-4 {
+    background-color: #51B6FF;
+}
+.blue-5 {
+    background-color: #6CC1FF;
+}
+.blue-6 {
+    background-color: #87cdff;
+}
+
+.yellow {
+    background-color: #ffff00;
+}
+.yellow-1 {
+    background-color: #FFFF1E;
+}
+.yellow-2 {
+    background-color: #FFFF3D;
+}
+.yellow-3 {
+    background-color: #FFFF5C;
+}
+.yellow-4 {
+    background-color: #FFFF7A;
+}
+.yellow-5 {
+    background-color: #FFFF99;
+}
+.yellow-6 {
+    background-color: #ffffb8;
+}
+
+.green {
+    background-color: #2bce03;
+}
+.green-1 {
+    background-color: #25bb00;
+}
+.green-2 {
+    background-color: #37C015;
+}
+.green-3 {
+    background-color: #49C52A;
+}
+.green-4 {
+    background-color: #5BCB3F;
+}
+.green-5 {
+    background-color: #6DD054;
+}
+.green-6 {
+    background-color: #80d66a;
 }

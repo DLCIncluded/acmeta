@@ -139,6 +139,7 @@ if(isset($_POST['name'])){
         <h1>
             Add new toon
         </h1>
+        <p>Click here to go back: <a href="index.php">Home</a></p>
         <input type="text" name="name" placeholder="Name" />
 
 
