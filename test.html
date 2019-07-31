@@ -12,7 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="main-cell reorder-gallery">
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="SS">
                     <div class="icon">
                         <img src="img/toons/acha.png" alt="acha" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -21,7 +21,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="A">
                     <div class="icon">
                         <img src="img/toons/alai.png" alt="alai" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -30,7 +30,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="S">
                     <div class="icon">
                         <img src="img/toons/albe.png" alt="albe" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="S">
                     <div class="icon">
                         <img src="img/toons/alex.png" alt="alex" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="D">
                     <div class="icon">
                         <img src="img/toons/alfr.png" alt="alfr" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="main-cell reorder-gallery">
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="SD">
                     <div class="icon">
                         <img src="img/toons/acha.png" alt="acha" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="B">
                     <div class="icon">
                         <img src="img/toons/alai.png" alt="alai" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -77,7 +77,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="C">
                     <div class="icon">
                         <img src="img/toons/albe.png" alt="albe" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -86,7 +86,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="D">
                     <div class="icon">
                         <img src="img/toons/alex.png" alt="alex" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -95,7 +95,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="cell ui-sortable-handle">
+                <div class="cell ui-sortable-handle" id="1" grade="A">
                     <div class="icon">
                         <img src="img/toons/alfr.png" alt="alfr" class="toon">
                         <img src="img/jobs/ank.png" alt="job-icon" class="job-icon">
@@ -122,19 +122,43 @@
     });
 
     function updateOrder() {	
-        var item_order = new Array();
-        $('ul.reorder-gallery li').each(function() {
-            item_order.push($(this).attr("id"));
+	var item_order = new Array();
+	$('.main-cell.reorder-gallery .cell').each(function() {
+		item_order.push($(this).attr("id"));
+	});
+	var order_string = 'order='+item_order;
+	$.ajax({
+		type: "GET",
+		url: "updateorder.php",
+		data: order_string,
+		cache: false,
+		success: function(data){			
+		}
+	});
+}
+
+    function updateGrade() {	
+        var item_grade = new Array();
+        var grade, id;
+        $('.main-cell.reorder-gallery .cell').each(function() {
+            grade = $(this).attr("grade").toString();
+            cellid = $(this).attr("id").toString();
+            //console.log(grade);
+            //console.log(id);
+            item_grade.push({ id : cell });
+            console.log(item_grade);
         });
-        var order_string = 'order='+item_order;
+        var order_string = 'grade='+item_grade;
+        /*
         $.ajax({
-            type: "POST",
-            url: "update_order.php",
+            type: "GET",
+            url: "updateorder.php",
             data: order_string,
             cache: false,
             success: function(data){			
             }
         });
+        */
     }
     </script>
 </body>
