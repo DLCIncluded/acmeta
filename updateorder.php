@@ -23,7 +23,6 @@ if(isset($_POST["data"])) {
 		//echo "<pre>";
 		//print_r($g);
 		//echo "</pre>";
-		$i = 0;
 		foreach($g as $label=>$info){
 			echo $label .": ".$info."<br />";
 		}
