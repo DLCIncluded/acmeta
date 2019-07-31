@@ -649,24 +649,27 @@ function updateGrade() {
 	var item_grade = new Array();
     var grade, id;
 	$('.main-cell.reorder-gallery .cell').each(function() {
-        grade = $(this).attr("grade").toString();
-        cellid = $(this).attr("id").toString();
+        grade = $(this).attr("grade");
+        cellid = $(this).attr("id");
         //console.log(grade);
         //console.log(id);
-		item_grade.push({ id : cell });
-        console.log(item_grade);
+		item_grade.push({ id : cellid, grade : grade });
+        json_grade = JSON.stringify(item_grade);
+        //console.log(json_grade);
 	});
-	var order_string = 'grade='+item_grade;
-    /*
+	//var order_string = 'grade='+item_grade;
+    //console.log(order_string);
+    
 	$.ajax({
-		type: "GET",
+		type: "POST",
 		url: "updateorder.php",
-		data: order_string,
+		data: {data : json_grade},
 		cache: false,
-		success: function(data){			
+		success: function(){			
+            alert("OK");
 		}
 	});
-    */
+    
 }
 
 </script>
