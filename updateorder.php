@@ -18,19 +18,31 @@ if(isset($_POST["data"])) {
     $grade = json_decode(stripslashes($_POST["data"]));
 
 	echo "<pre>";
-	echo "</pre>";
-	foreach ($grade as &$g) {
-		//echo "<pre>";
-		//print_r($g);
-		//echo "</pre>";
-		foreach($g as $label=>$info){
-			echo $label .": ".$info."<br />";
+
+	//print_r($_POST["data"]);
+	//print_r($grade);
+	foreach ($grade as &$value) {
+		//$test = json_encode($value);
+		//print_r($value);
+		$id = $value->id;
+		$grd = $value->grade;
+		//echo $test1 ." : ". $test2;
+		echo "<br> <br>";
+
+		$sql = "UPDATE toons SET grade='" . $grd . "' WHERE id='". $id."'";		
+		if($connection->query($sql)){
+            echo "successfully updated $id to $grd <br>";
+        }else{
+            echo $connection->error;
 		}
-		
-		
+	}
+	/*
+	foreach ($your_object->DataFormItem->Values->fv as $fv_element) {
+		echo $fv_element->Value." ".$fv_element->ID."<br>";
 	}
 
-	/*
+	echo "</pre>";
+	
 	for($i=0; $i < count($grade);$i++) {
 		
 		$sql = "UPDATE toons SET displayorder='" . $i . "' WHERE id=". $grade[$i];		
