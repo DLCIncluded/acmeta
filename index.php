@@ -120,108 +120,11 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
     <script src="https://kit.fontawesome.com/2e1be1b97d.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
     <title>AC Meta Tracker</title>
 
     <style>
-/* Popup container - can be anything you want */
-.icon {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-/* The actual popup */
-.popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: relative;
-  z-index: 999;
-  top: 10%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popuptext::after {
-  bottom: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-bottom-color: #555;
-  border-width: 10px;
-  margin-left: -10px;
-}
-
-/* Toggle this class - hide and show the popup */
-.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-
-.openModal {
-    cursor:pointer;
-    display:inline-block;
-    text-align:center;
-}
-.modal {
-    display:none;
-    position: fixed;
-    z-index:999;
-    padding-top:100px;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    overflow:auto;
-    background-color:rgba(0,0,0,0.4);
-}
-
-.modal_content {
-    background-color: #fefefe;
-    margin: auto;
-    padding: 20px;
-    border:1px solid #888;
-    width:80%;
-}
-
-.close {
-    color: #aaa;
-    float:right;
-    font-size:28px;
-    font-weight:bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration:none;
-    cursor:pointer;
-}
 </style>
 
 </head>
