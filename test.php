@@ -30,7 +30,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             $grade = $row['grade'];
 
             //create the data for the cell
-            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'">';
+            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'" oncontextmenu="location.href=\'edittoon.php?id='.$id.'\';return false;">';
                 $cell_data .= '<div class="icon">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';

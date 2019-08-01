@@ -148,8 +148,6 @@ if(isset($_GET['id'])){
                 echo $cell_data;
             ?>
         </div>
-        <!--
-        <div class="main-cell">
             <form>
                 <input type="text" name="name" id="name" placeholder="Name..." value="<?php echo $name; ?>">
                 <div class="element-select">
@@ -161,10 +159,7 @@ if(isset($_GET['id'])){
                     <label><input type="radio" name="element" value="5"></input><div class="light"> </div></label>
                     <label><input type="radio" name="element" value="6"></input><div class="dark"> </div></label>
                 </div>
-
             </form>
-        </div>
--->
     </div>
 </div>
 
