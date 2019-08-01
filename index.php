@@ -2,15 +2,6 @@
 ini_set('display_errors', '1');
 include_once("dbConn.php");
 
-//element id's
-//fire    = 1
-//water   = 2
-//thunder = 3
-//wind    = 4
-//light   = 5
-//dark    = 6
-
-//grades SS, S, A, B, C, D
 if(isset($_POST['grade']) && isset($_POST['id'])){
     $grade = $_POST['grade'];
     $id = $_POST['id'];
@@ -21,37 +12,7 @@ if(isset($_POST['grade']) && isset($_POST['id'])){
         echo $connection->error;
     }
 }
-/*
-function pullContent($grd,$ele) {//function to pull the info from the DB
-    global $connection;//pull the connection variable from DbConn file
-    $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."'";
-    $result = $connection->query($sql);
-    $cell_data = '';
-    if($result->num_rows >= 1){
-        while($row = $result->fetch_assoc()){
-            //pull info from DB
-            $id = $row['id'];
-            $name = $row['name'];
-            $img = $row['img'];
-            $job = $row['job'];
-            $star = $row['star'];
-            $element = $row['element'];
-            $grade = $row['grade'];
-            //create the data for the cell
-            $cell_data .= '<div class="cell">';
-                $cell_data .= '<div class="icon">';
-                    $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
-                    $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
-                    $cell_data .= '<div class="element-star star-' . $star . '">';
-                        $cell_data .= '<div class="element-icon element-' . $element . '"></div>';
-                    $cell_data .= '</div>';
-                $cell_data .= '</div>';
-            $cell_data .= '</div>';
-        }
-    }
-    return $cell_data;
-}
-*/
+
 function pullContent($grd,$ele) {//function to pull the info from the DB
     global $connection;//pull the connection variable from DbConn file
     $sql = "SELECT * FROM toons WHERE grade='".$grd."' AND element='".$ele."' ORDER BY displayorder";
@@ -115,7 +76,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/2e1be1b97d.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
@@ -180,7 +140,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                         <p>They stand out from their element as the core unit of respective element</p>
                     </div>
                 </div>
-                <!-- <p>They stand out from their element as the core unit of respective element</p> -->
             </div>
             <div class="main-cell purple-1 reorder-gallery dark-column" grade="ss">
                 <?php
@@ -189,32 +148,27 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             </div>
             <div class="main-cell grey-1 reorder-gallery light-column" grade="ss">
                 <?php
-                    //echo $light_ss;
                     echo pullContent("ss", "5");//light_ss
                 ?>
             </div>
             <div class="main-cell red-1 reorder-gallery fire-column" grade="ss">
                 <?php
-                    //echo $fire_ss;
                     echo pullContent("ss", "1");//fire_ss
                 ?>
             </div>
             <div class="main-cell blue-1 reorder-gallery water-column" grade="ss">
                 <?php
-                    //echo $water_ss;
                     echo pullContent("ss", "2");//water_ss
                 ?>
             </div>
             <div class="main-cell yellow-1 reorder-gallery thunder-column" grade="ss">
                 <?php
-                    //echo $thunder_ss;
                     echo pullContent("ss", "3");//thunder_ss
                 ?>
                 
             </div>
             <div class="main-cell green-1 reorder-gallery wind-column" grade="ss">
                 <?php
-                    //echo $wind_ss;
                     echo pullContent("ss", "4");//wind_ss
                 ?>
             </div>
@@ -233,37 +187,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             
             <div class="main-cell purple-2 reorder-gallery dark-column" grade="s">
                 <?php
-                    //echo $dark_s;
                     echo pullContent("s", "6");//dark_s
                 ?>
             </div>
             <div class="main-cell grey-2 reorder-gallery light-column" grade="s">
                 <?php
-                    //echo $light_s;
                     echo pullContent("s", "5");//light_s
                 ?>
             </div>
             <div class="main-cell red-2 reorder-gallery fire-column" grade="s">
                 <?php
-                    //echo $fire_s;
                     echo pullContent("s", "1");//fire_s
                 ?>
             </div>
             <div class="main-cell blue-2 reorder-gallery water-column" grade="s">
                 <?php
-                    //echo $water_s;
                     echo pullContent("s", "2");//water_s
                 ?>
             </div>
             <div class="main-cell yellow-2 reorder-gallery thunder-column" grade="s">
                 <?php
-                    //echo $thunder_s;
                     echo pullContent("s", "3");//thunder_s
                 ?>
             </div>
             <div class="main-cell green-2 reorder-gallery wind-column" grade="s">
                 <?php
-                    //echo $wind_s;
                     echo pullContent("s", "4");//wind_s
                 ?>
             </div>
@@ -281,37 +229,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             </div>
             <div class="main-cell purple-3 reorder-gallery dark-column" grade="a">
                 <?php
-                    //echo $dark_a;
                     echo pullContent("a", "6");//dark_a
                 ?>
             </div>
             <div class="main-cell grey-3 reorder-gallery light-column" grade="a">
                 <?php
-                    //echo $light_a;
                     echo pullContent("a", "5");//light_a
                 ?>
             </div>
             <div class="main-cell red-3 reorder-gallery fire-column" grade="a">
                 <?php
-                    //echo $fire_a;
                     echo pullContent("a", "1");//fire_a
                 ?>
             </div>
             <div class="main-cell blue-3 reorder-gallery water-column" grade="a">
                 <?php
-                    //echo $water_a;
                     echo pullContent("a", "2");//water_a
                 ?>
             </div>
             <div class="main-cell yellow-3 reorder-gallery thunder-column" grade="a">
                 <?php
-                    //echo $thunder_a;
                     echo pullContent("a", "3");//thunder_a
                 ?>
             </div>
             <div class="main-cell green-3 reorder-gallery wind-column" grade="a">
                 <?php
-                    //echo $wind_a;
                     echo pullContent("a", "4");//wind_a
                 ?>
             </div>
@@ -329,37 +271,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             </div>
             <div class="main-cell purple-4 reorder-gallery dark-column" grade="b">
                 <?php
-                    //echo $dark_b;
                     echo pullContent("b", "6");//dark_b
                 ?>
             </div>
             <div class="main-cell grey-4 reorder-gallery light-column" grade="b">
                 <?php
-                    //echo $light_b;
                     echo pullContent("b", "5");//light_b
                 ?>
             </div>
             <div class="main-cell red-4 reorder-gallery fire-column" grade="b">
                 <?php
-                    //echo $fire_b;
                     echo pullContent("b", "1");//fire_b
                 ?>
             </div>
             <div class="main-cell blue-4 reorder-gallery water-column" grade="b">
                 <?php
-                    //echo $water_b;
                     echo pullContent("b", "2");//water_b
                 ?>
             </div>
             <div class="main-cell yellow-4 reorder-gallery thunder-column" grade="b">
                 <?php
-                    //echo $thunder_b;
                     echo pullContent("b", "3");//thunder_b
                 ?>
             </div>
             <div class="main-cell green-4 reorder-gallery wind-column" grade="b">
                 <?php
-                    //echo $wind_b;
                     echo pullContent("b", "4");//wind_b
                 ?>
             </div>
@@ -377,37 +313,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             </div>
             <div class="main-cell purple-5 reorder-gallery dark-column" grade="c">
                 <?php
-                    //echo $dark_c;
                     echo pullContent("c", "6");//dark_c
                 ?>
             </div>
             <div class="main-cell grey-5 reorder-gallery light-column" grade="c">
                 <?php
-                    //echo $light_c;
                     echo pullContent("c", "5");//light_c
                 ?>
             </div>
             <div class="main-cell red-5 reorder-gallery fire-column" grade="c">
                 <?php
-                    //echo $fire_c;
                     echo pullContent("c", "1");//fire_c
                 ?>
             </div>
             <div class="main-cell blue-5 reorder-gallery water-column" grade="c">
                 <?php
-                    //echo $water_c;
                     echo pullContent("c", "2");//water_c
                 ?>
             </div>
             <div class="main-cell yellow-5 reorder-gallery thunder-column" grade="c">
                 <?php
-                    //echo $thunder_c;
                     echo pullContent("c", "3");//thunder_c
                 ?>
             </div>
             <div class="main-cell green-5 reorder-gallery wind-column" grade="c">
                 <?php
-                    //echo $wind_c;
                     echo pullContent("c", "4");//wind_c
                 ?>
             </div>
@@ -425,37 +355,31 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             </div>
             <div class="main-cell purple-6 reorder-gallery dark-column" grade="d">
                 <?php
-                    //echo $dark_d;
                     echo pullContent("d", "6");//dark_d
                 ?>
             </div>
             <div class="main-cell grey-6 reorder-gallery light-column" grade="d">
                 <?php
-                    //echo $light_d;
                     echo pullContent("d", "5");//light_d
                 ?>
             </div>
             <div class="main-cell red-6 reorder-gallery fire-column" grade="d">
                 <?php
-                    //echo $fire_d;
                     echo pullContent("d", "1");//fire_d
                 ?>
             </div>
             <div class="main-cell blue-6 reorder-gallery water-column" grade="d">
                 <?php
-                    //echo $water_d;
                     echo pullContent("d", "2");//water_d
                 ?>
             </div>
             <div class="main-cell yellow-6 reorder-gallery thunder-column" grade="d">
                 <?php
-                    //echo $thunder_d;
                     echo pullContent("d", "3");//thunder_d
                 ?>
             </div>
             <div class="main-cell green-6 reorder-gallery wind-column" grade="d">
                 <?php
-                    //echo $wind_d;
                     echo pullContent("d", "4");//wind_d
                 ?>
             </div>
@@ -478,6 +402,7 @@ function closeModal($id){
     var modal = document.getElementById($id);
     modal.style.display = "none";
 }
+//TODO This needs a re-write BADLY!
 var modalInfo = document.getElementById("modalInfo");
 var modalSS = document.getElementById("modalSS");
 var modalS = document.getElementById("modalS");
@@ -485,27 +410,23 @@ var modalA = document.getElementById("modalA");
 var modalB = document.getElementById("modalB");
 var modalC = document.getElementById("modalC");
 var modalD = document.getElementById("modalD");
-window.onclick = function(event) {
-  if (event.target == modalInfo || event.target == modalSS || event.target == modalS || event.target == modalA || event.target == modalB ||event.target == modalC ||event.target == modalD) {
-    modalInfo.style.display = "none";
-    modalSS.style.display = "none";
-    modalS.style.display = "none";
-    modalA.style.display = "none";
-    modalB.style.display = "none";
-    modalC.style.display = "none";
-    modalD.style.display = "none";
-  }
-}
-/*
-$(document).ready(function(){	
-	$(".main-cell.reorder-gallery").sortable({		
-		update: function( event, ui ) {
-			updateOrder();
-		}
-	});  
-});
-*/
 
+window.onclick = function(event) {
+    if (event.target == modalInfo || event.target == modalSS || event.target == modalS || event.target == modalA || event.target == modalB ||event.target == modalC ||event.target == modalD) {
+        modalInfo.style.display = "none";
+        modalSS.style.display = "none";
+        modalS.style.display = "none";
+        modalA.style.display = "none";
+        modalB.style.display = "none";
+        modalC.style.display = "none";
+        modalD.style.display = "none";
+    }
+}
+
+// END TODO
+
+
+// Connecting the sortables with the columns so we can drag-drop grade change
 $( ".dark-column" ).sortable({
     connectWith: ".dark-column"
 });
@@ -525,19 +446,20 @@ $( ".wind-column" ).sortable({
     connectWith: ".wind-column"
 });
 
+// when we move, run the updates and shoot to the updateorder.php handler
 $(document).ready(function(){	
 	$(".reorder-gallery").sortable({		
 		update: function(event,ui) {
             if (this === ui.item.parent()[0]) {
                 if (ui.sender !== null) {
-                    // the movement was from one container to another - do something to process it
-                    // ui.sender will be the reference to original container
+                    // the movement was from one container to another
+                    // not sure if we need the ui.sender any more but figured why not...
                     updateGrade();
                     console.log("changing grade");
                     updateOrder();
                     console.log("changing order");
                 } else {
-                    // the move was performed within the same container - do your "same container" stuff
+                    // the move was performed within the same container 
                     updateOrder();
                     console.log("changing order");
                 }
@@ -550,6 +472,7 @@ $(document).ready(function(){
 function updateOrder() {	
 	var item_order = new Array();
 	$('.main-cell.reorder-gallery .cell').each(function() {
+        //create array with the cells id to send 
 		item_order.push($(this).attr("cellid"));
 	});
 	var order_string = 'order='+item_order;
@@ -567,16 +490,12 @@ function updateGrade() {
 	var item_grade = new Array();
     var grade, id;
 	$('.main-cell.reorder-gallery .cell').each(function() {
+        //get the cellid and grade and put them into the array/object
         grade = $(this).parent().attr("grade");
         cellid = $(this).attr("cellid");
-        //console.log(grade);
-        //console.log(id);
 		item_grade.push({ id : cellid, grade : grade });
         json_grade = JSON.stringify(item_grade);
-        //console.log(json_grade);
 	});
-	//var order_string = 'grade='+item_grade;
-    //console.log(order_string);
     
 	$.ajax({
 		type: "POST",
