@@ -29,14 +29,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             $element = $row['element'];
             $grade = $row['grade'];
 
-            $sel_ss = ($grade == "ss") ? "selected='selected'" : " ";
-            $sel_s = ($grade == "s") ? "selected='selected'" : " ";
-            $sel_a = ($grade == "a") ? "selected='selected'" : " ";
-            $sel_b = ($grade == "b") ? "selected='selected'" : " ";
-            $sel_c = ($grade == "c") ? "selected='selected'" : " ";
-            $sel_d = ($grade == "d") ? "selected='selected'" : " ";
-
-
             //create the data for the cell
             $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'">';
                 $cell_data .= '<div class="icon">';
@@ -45,24 +37,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                     $cell_data .= '<div class="element-star star-' . $star . '">';
                         $cell_data .= '<div class="element-icon element-' . $element . '"></div>';
                     $cell_data .= '</div>';
-                    
                 $cell_data .= '</div>';
-                $cell_data .= '<div class="popuptext" id="'.$id.'">';
-                        $cell_data .= 'Grade:';
-                        $cell_data .= '<form action="#" method="POST">';
-                            $cell_data .= '<select name="grade">';
-                                $cell_data .= '<option value="ss" '.$sel_ss.'>SS</option>';
-                                $cell_data .= '<option value="s" '.$sel_s.'>S</option>';
-                                $cell_data .= '<option value="a" '.$sel_a.'>A</option>';
-                                $cell_data .= '<option value="b" '.$sel_b.'>B</option>';
-                                $cell_data .= '<option value="c" '.$sel_c.'>C</option>';
-                                $cell_data .= '<option value="d" '.$sel_d.'>D</option>';
-                            $cell_data .= '</select>';
-                            $cell_data .= '<input type="hidden" name="id" value="'.$id.'">';
-                            $cell_data .= '<input type="submit" value="Save">';
-                            $cell_data .= '<span style="display:inline-block; cursor:pointer" onclick="togglePopup('.$id.')">Close</span>';
-                        $cell_data .= '</form>';
-                    $cell_data .= '</div>';
             $cell_data .= '</div>';
         }
     }
@@ -77,7 +52,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css">
-    <script src="https://kit.fontawesome.com/2e1be1b97d.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
@@ -133,7 +107,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">
-                <h2 class="openModal" id="openModalSS" onclick="openModal('modalSS')">Core Units<br>(SS)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalSS" onclick="openModal('modalSS')">Core Units<br>(SS)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalSS">
                     <div class="modal_content">
                         <span class="close" onclick="closeModal('modalSS')">&times;</span>
@@ -176,7 +150,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">
-                <h2 class="openModal" id="openModalS" onclick="openModal('modalS')">Excellent Units<br>(S)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalS" onclick="openModal('modalS')">Excellent Units<br>(S)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalS">
                     <div class="modal_content">
                         <span class="close" onclick="closeModal('modalS')">&times;</span>
@@ -219,7 +193,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">                
-                <h2 class="openModal" id="openModalA" onclick="openModal('modalA')">Great Units<br>(A)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalA" onclick="openModal('modalA')">Great Units<br>(A)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalA" onclick="closeModal('modalA')">
                     <div class="modal_content">
                         <span class="close">&times;</span>
@@ -261,7 +235,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">        
-                <h2 class="openModal" id="openModalB" onclick="openModal('modalB')">Good Units<br>(B)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalB" onclick="openModal('modalB')">Good Units<br>(B)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalB">
                     <div class="modal_content">
                         <span class="close" onclick="closeModal('modalB')">&times;</span>
@@ -303,7 +277,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">
-                <h2 class="openModal" id="openModalC" onclick="openModal('modalC')">Decent Units<br>(C)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalC" onclick="openModal('modalC')">Decent Units<br>(C)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalC">
                     <div class="modal_content">
                         <span class="close" onclick="closeModal('modalC')">&times;</span>
@@ -345,7 +319,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
         <div class="row">
             <div class="main-cell header-cell">
-                <h2 class="openModal" id="openModalD" onclick="openModal('modalD')">Bad Units<br>(D)<br><i class="fas fa-info-circle" style="font-size:12pt;text-decoration:none;margin-left:10px;"></i></h2>
+                <h2 class="openModal" id="openModalD" onclick="openModal('modalD')">Bad Units<br>(D)<br><img src="https://img.icons8.com/flat_round/24/000000/info.png"></h2>
                 <div class="modal" id="modalD">
                     <div class="modal_content">
                         <span class="close" onclick="closeModal('modalD')">&times;</span>
