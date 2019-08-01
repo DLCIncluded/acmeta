@@ -1,18 +1,7 @@
 <?php
-error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include_once("dbConn.php");
 
-if(isset($_POST['grade']) && isset($_GET['id'])){
-    $grade = $_POST['grade'];
-    $id = $_GET['id'];
-    $sql = "UPDATE toons SET grade='".$grade."' WHERE id='".$id."'";
-    if($connection->query($sql)){
-        echo "successfully updated toon";
-    }else{
-        echo $connection->error;
-    }
-}
 //element id's
 //fire    = 1
 //water   = 2
@@ -39,18 +28,29 @@ if(isset($_GET['id'])){
         $element = $row['element'];
         $grade = $row['grade'];
 
-        //echo $grade;
-        $sel_ss = ($grade == "ss") ? "selected='selected'" : " ";
-        $sel_s = ($grade == "s") ? "selected='selected'" : " ";
-        $sel_a = ($grade == "a") ? "selected='selected'" : " ";
-        $sel_b = ($grade == "b") ? "selected='selected'" : " ";
-        $sel_c = ($grade == "c") ? "selected='selected'" : " ";
-        $sel_d = ($grade == "d") ? "selected='selected'" : " ";
+        $fire = ($element == "1") ? "checked" : " ";
+        $water = ($element == "2") ? "checked" : " ";
+        $thunder = ($element == "3") ? "checked" : " ";
+        $wind = ($element == "4") ? "checked" : " ";
+        $light = ($element == "5") ? "checked" : " ";
+        $dark = ($element == "6") ? "checked" : " ";
 
+        $s1 = ($star == "1") ? "checked" : " ";
+        $s2 = ($star == "2") ? "checked" : " ";
+        $s3 = ($star == "3") ? "checked" : " ";
+        $s4 = ($star == "4") ? "checked" : " ";
+        $s5 = ($star == "5") ? "checked" : " ";
+
+        $ss = ($grade == "ss") ? "selected" : " ";
+        $s = ($grade == "s") ? "selected" : " ";
+        $a = ($grade == "a") ? "selected" : " ";
+        $b = ($grade == "b") ? "selected" : " ";
+        $c = ($grade == "c") ? "selected" : " ";
+        $d = ($grade == "d") ? "selected" : " ";
 
         //create the data for the cell
         $cell_data .= '<div class="cell">';
-            $cell_data .= '<div class="icon" onclick="togglePopup('.$id.')">';
+            $cell_data .= '<div class="icon">';
                 $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
                 $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
                 $cell_data .= '<div class="element-star star-' . $star . '">';
@@ -58,21 +58,6 @@ if(isset($_GET['id'])){
                 $cell_data .= '</div>';
                 
             $cell_data .= '</div>';
-            $cell_data .= '<div class="popuptext" id="'.$id.'">';
-                    $cell_data .= 'Grade:';
-                    $cell_data .= '<form action="#" method="POST">';
-                        $cell_data .= '<select name="grade">';
-                            $cell_data .= '<option value="ss" '.$sel_ss.'>SS</option>';
-                            $cell_data .= '<option value="s" '.$sel_s.'>S</option>';
-                            $cell_data .= '<option value="a" '.$sel_a.'>A</option>';
-                            $cell_data .= '<option value="b" '.$sel_b.'>B</option>';
-                            $cell_data .= '<option value="c" '.$sel_c.'>C</option>';
-                            $cell_data .= '<option value="d" '.$sel_d.'>D</option>';
-                        $cell_data .= '</select>';
-                        $cell_data .= '<input type="submit" value="Save">';
-                        $cell_data .= '<span style="display:inline-block; cursor:pointer" onclick="togglePopup('.$id.')">Close</span>';
-                    $cell_data .= '</form>';
-                $cell_data .= '</div>';
         $cell_data .= '</div>';
     }
 } else {
@@ -80,97 +65,90 @@ if(isset($_GET['id'])){
 }
 ?>
 <link rel="stylesheet" href="css/styles.css">
-<style>
-/* Popup container - can be anything you want */
-.icon {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
 
-/* The actual popup */
-.popuptext {
-  visibility: hidden;
-  width: 160px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 8px 0;
-  position: absolute;
-  z-index: 1;
-  top: 85%;
-  left: 50%;
-  margin-left: -80px;
-}
-
-/* Popup arrow */
-.popuptext::after {
-  bottom: 100%;
-  left: 50%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-  border-bottom-color: #555;
-  border-width: 10px;
-  margin-left: -10px;
-}
-
-/* Toggle this class - hide and show the popup */
-.show {
-  visibility: visible;
-  -webkit-animation: fadeIn 1s;
-  animation: fadeIn 1s;
-}
-
-/* Add animation (fade in the popup) */
-@-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
-}
-
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
-}
-</style>
 <div class="container">
-    <div class="row">
-        <div class="main-cell">
             <?php
                 echo $cell_data;
             ?>
+
+    <form class="new-toon" action="#" method="POST">
+        <h1>
+            Edit Toon
+        </h1>
+        <p><a href="index.php">Home</a> | <a href="tooninfo.php?id=<?php echo $id; ?>">Info Page</a></p>
+        <input type="text" name="name" placeholder="Name" />
+
+
+        <div class="element-select">
+            Element:
+            <label><input type="radio" name="element" value="1" <?php echo $dark; ?>></input><div class="fire"> </div></label>
+            <label><input type="radio" name="element" value="2" <?php echo $water; ?>></input><div class="water"> </div></label>
+            <label><input type="radio" name="element" value="3" <?php echo $thunder; ?>></input><div class="thunder"> </div></label>
+            <label><input type="radio" name="element" value="4" <?php echo $wind; ?>></input><div class="wind"> </div></label>
+            <label><input type="radio" name="element" value="5" <?php echo $light; ?>></input><div class="light"> </div></label>
+            <label><input type="radio" name="element" value="6" <?php echo $dark; ?>></input><div class="dark"> </div></label>
         </div>
-            <form>
-                <input type="text" name="name" id="name" placeholder="Name..." value="<?php echo $name; ?>">
-                <div class="element-select">
-                    Element:
-                    <label><input type="radio" name="element" value="1"></input><div class="fire"> </div></label>
-                    <label><input type="radio" name="element" value="2"></input><div class="water"> </div></label>
-                    <label><input type="radio" name="element" value="3"></input><div class="thunder"> </div></label>
-                    <label><input type="radio" name="element" value="4"></input><div class="wind"> </div></label>
-                    <label><input type="radio" name="element" value="5"></input><div class="light"> </div></label>
-                    <label><input type="radio" name="element" value="6"></input><div class="dark"> </div></label>
-                </div>
-            </form>
-    </div>
+
+        Image:
+        <div class="scrollbox">
+        <?php
+        
+        $fileList = glob('img/toons/*');
+        foreach($fileList as $filename){
+            //Use the is_file function to make sure that it is not a directory.
+            if(is_file($filename)){
+
+                //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
+                ?>
+                <label><input type="radio" name="img" value="<?php echo basename($filename); ?>" <?php if($img == basename($filename)){ echo "checked"; }?>><img src="<?php echo $filename ?>" alt="" width="58px" height="58px"><br></label>
+                <?php
+            }   
+        }
+        ?>
+        </div>
+        <br>
+
+
+        Job:
+        <div class="scrollbox">
+        <?php
+        
+        $fileList = glob('img/jobs/*');
+        foreach($fileList as $filename){
+            //Use the is_file function to make sure that it is not a directory.
+            if(is_file($filename)){
+
+                //echo "<option value='".basename($filename)."'>", basename($filename), '</option>'; 
+                ?>
+                <label><input type="radio" name="job" value="<?php echo basename($filename) ?>" <?php if($img == basename($filename)){ echo "checked"; }?>><img src="<?php echo $filename ?>" alt="" width="48px" height="48px"><br></label>
+                <?php
+            }   
+        }
+        ?>
+        </div>
+
+        
+        <div class="star-box">
+        Star:
+            <label><input type="radio" name="star" value="1" ></input><div class="stars-1"> </div></label>
+            <label><input type="radio" name="star" value="2" <?php echo $s2; ?>></input><div class="stars-2"> </div></label>
+            <label><input type="radio" name="star" value="3" <?php echo $s3; ?>></input><div class="stars-3"> </div></label>
+            <label><input type="radio" name="star" value="4" <?php echo $s4; ?>></input><div class="stars-4"> </div></label>
+            <label><input type="radio" name="star" value="5" <?php echo $s5; ?>></input><div class="stars-5"> </div></label>
+        </div>
+        <br>
+        Grade:
+        <select name="grade">
+            <option value="ss" <?php echo $ss; ?>>SS</option>
+            <option value="s" <?php echo $s; ?>>S</option>
+            <option value="a" <?php echo $a; ?>>A</option>
+            <option value="b" <?php echo $b; ?>>B</option>
+            <option value="c" <?php echo $c; ?>>C</option>
+            <option value="d" <?php echo $d; ?>>D</option>
+        </select>**will be changable later**
+        <br>
+        <br>
+
+        <input type="submit" value="Save Changes">
+    </form>
 </div>
-
-
-<script>
-// When the user clicks on div, open the popup
-function togglePopup($id) {
-  var popup = document.getElementById($id);
-  popup.classList.toggle("show");
-}
-
-
-
-</script>

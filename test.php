@@ -30,9 +30,9 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             $grade = $row['grade'];
 
             //create the data for the cell
-            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'" oncontextmenu="location.href=\'edittoon.php?id='.$id.'\';return false;">';
+            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'" ondblcflick="location.href=\'edittoon.php?id='.$id.'\'">';
                 $cell_data .= '<div class="icon">';
-                    $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon">';
+                    $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon" alt="'. $name .'">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
                     $cell_data .= '<div class="element-star star-' . $star . '">';
                         $cell_data .= '<div class="element-icon element-' . $element . '"></div>';
@@ -81,7 +81,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                             <li>Select the new grade</li>
                             <li>Click save</li>
                         </ol>
-                        <a href="newtoon.php">New Toon</a>
+                        <a href="newtoon.php" data-ajax="false">New Toon</a>
                     </div>
                 </div>
             </div>
@@ -367,6 +367,10 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
 
 <script>
+
+
+                    
+
 /*
 const menu = document.querySelector(".menu");
 let menuVisible = false;
@@ -456,6 +460,12 @@ $( ".wind-column" ).sortable({
 
 // when we move, run the updates and shoot to the updateorder.php handler
 $(document).ready(function(){	
+    $(".cell").on("tap",function(){
+        console.log("yes");
+        var cell = $(this).attr("cellid");
+        window.location.href='tooninfo.php?id='+cell;
+    });   
+
 	$(".reorder-gallery").sortable({		
 		update: function(event,ui) {
             if (this === ui.item.parent()[0]) {
@@ -518,3 +528,4 @@ function updateGrade() {
 }
 
 </script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>

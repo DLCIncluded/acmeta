@@ -535,8 +535,6 @@ grey
 }
 
 .new-toon {
-    margin-left:20px;
-    margin-top:20px;
 }
 
 [type=radio] { 
@@ -590,7 +588,7 @@ outline: 2px solid #f00;
 }
 
 .stars-1 {
-    background-image: url('img/assets/unit-stars.png');
+    background-image: url('../img/assets/unit-stars.png');
     background-position: 0 0;
     width:60px;
     height:20px;
@@ -602,7 +600,7 @@ outline: 2px solid #f00;
 }
 
 .stars-2 {
-    background-image: url('img/assets/unit-stars.png');
+    background-image: url('../img/assets/unit-stars.png');
     background-position: 20% 0;
     width:60px;
     height:25px;
@@ -614,7 +612,7 @@ outline: 2px solid #f00;
 }
 
 .stars-3 {
-    background-image: url('img/assets/unit-stars.png');
+    background-image: url('../img/assets/unit-stars.png');
     background-position: 40% 0;
     width:60px;
     height:20px;
@@ -625,7 +623,7 @@ outline: 2px solid #f00;
 }
 
 .stars-4 {
-    background-image: url('img/assets/unit-stars.png');
+    background-image: url('../img/assets/unit-stars.png');
     background-position: 60% 0;
     width:60px;
     height:20px;
@@ -636,7 +634,7 @@ outline: 2px solid #f00;
 }
 
 .stars-5 {
-    background-image: url('img/assets/unit-stars.png');
+    background-image: url('../img/assets/unit-stars.png');
     background-position: 80% 0;
     width:60px;
     height:20px;
