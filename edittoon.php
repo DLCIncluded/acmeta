@@ -73,7 +73,7 @@ if(isset($_GET['id'])){
 
     <form class="new-toon" action="#" method="POST">
         <h1>
-            Edit Toon
+            Edit Toon (not functional yet)
         </h1>
         <p><a href="index.php">Home</a> | <a href="tooninfo.php?id=<?php echo $id; ?>">Info Page</a></p>
         <input type="text" name="name" placeholder="Name" />

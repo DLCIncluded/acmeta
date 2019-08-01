@@ -697,3 +697,6 @@ outline: 2px solid #f00;
     }
   }
   */
+  .ui-loader {
+    display: none !important;
+ }
