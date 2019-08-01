@@ -115,33 +115,33 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                     </div>
                 </div>
             </div>
-            <div class="main-cell purple-1 reorder-gallery dark-column" grade="ss">
+            <div class="main-cell purple-1 reorder-gallery dark-column dark-head" grade="ss">
                 <?php
                    echo pullContent("ss", "6");//dark_ss
                 ?>
             </div>
-            <div class="main-cell grey-1 reorder-gallery light-column" grade="ss">
+            <div class="main-cell grey-1 reorder-gallery light-column light-head" grade="ss">
                 <?php
                     echo pullContent("ss", "5");//light_ss
                 ?>
             </div>
-            <div class="main-cell red-1 reorder-gallery fire-column" grade="ss">
+            <div class="main-cell red-1 reorder-gallery fire-column fire-head" grade="ss">
                 <?php
                     echo pullContent("ss", "1");//fire_ss
                 ?>
             </div>
-            <div class="main-cell blue-1 reorder-gallery water-column" grade="ss">
+            <div class="main-cell blue-1 reorder-gallery water-column water-head" grade="ss">
                 <?php
                     echo pullContent("ss", "2");//water_ss
                 ?>
             </div>
-            <div class="main-cell yellow-1 reorder-gallery thunder-column" grade="ss">
+            <div class="main-cell yellow-1 reorder-gallery thunder-column thunder-head" grade="ss">
                 <?php
                     echo pullContent("ss", "3");//thunder_ss
                 ?>
                 
             </div>
-            <div class="main-cell green-1 reorder-gallery wind-column" grade="ss">
+            <div class="main-cell green-1 reorder-gallery wind-column wind-head" grade="ss">
                 <?php
                     echo pullContent("ss", "4");//wind_ss
                 ?>
@@ -360,10 +360,44 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
         </div>
 
     </div>
+
 </body>
 </html>
 
+
+
 <script>
+/*
+const menu = document.querySelector(".menu");
+let menuVisible = false;
+
+const toggleMenu = command => {
+  menu.style.display = command === "show" ? "block" : "none";
+  menuVisible = !menuVisible;
+};
+
+const setPosition = ({ top, left }) => {
+  menu.style.left = `${left}px`;
+  menu.style.top = `${top}px`;
+  toggleMenu("show");
+};
+
+window.addEventListener("click", e => {
+  if(menuVisible)toggleMenu("hide");
+});
+
+window.addEventListener("contextmenu", e => {
+  e.preventDefault();
+  const origin = {
+    left: e.pageX,
+    top: e.pageY
+  };
+  setPosition(origin);
+  return false;
+});
+
+*/
+
 
 
 
