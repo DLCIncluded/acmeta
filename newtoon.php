@@ -1,4 +1,7 @@
-<?php
+<?PHP
+include("utils.php");
+if($loggedIn=="true"){
+
 include("dbConn.php");
 if(isset($_POST['name'])){
     $name=$_POST['name'];
@@ -102,3 +105,11 @@ if(isset($_POST['name'])){
         <input type="submit" value="Create">
     </form>
 </div>
+
+<?PHP
+	}else{
+?>
+	<p>You must be <a href="login.php">logged</a> in to view this page.</p>
+<?PHP
+	}
+?>

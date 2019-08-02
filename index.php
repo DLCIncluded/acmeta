@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', '1');
-include_once("dbConn.php");
+include("utils.php");
 
 if(isset($_POST['grade']) && isset($_POST['id'])){
     $grade = $_POST['grade'];
@@ -57,33 +56,39 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <title>AC Meta Tracker</title>
 
-    <style>
-
-</style>
-
 </head>
 <body>
-    <div class="container">
+    <div id="menu" class="menu">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
+            
+            <a href="index.php" data-ajax="false">Home</a>
+            <?php 
+            
+            if($loggedIn=="true"){
+                ?>
+            <a href="logout.php" data-ajax="false">Logout</a>
+                <?php
+                if($rank >= 2){
+                ?>
+                <a href="#" data-ajax="false">Admins Only</a>
+                <a href="newtoon.php" data-ajax="false">New Toon</a>
+                <?php
+                }
+            }else{
+            ?>
+            <a href="login.php" data-ajax="false">Login</a>
+            <a href="register.php" data-ajax="false">Register</a>
+            <?php
+            }
+            ?>
+            
+    </div>
+    <a href="javascript:void(0)" onclick="openMenu()"><img src="img/assets/menu.png" alt="menu" width="30" style="position:absolute;margin-left:20px;margin-top:25px;z-index:999"/></a>
+    <div id="container" class="container">
 
         <div class="row">
-            <div class="main-cell header-cell">
-                <h2>Meta Tracker</h2>
-                <p class="openModal" id="openModalInfo" onclick="openModal('modalInfo')">Click here for info</p>
-                <div class="modal" id="modalInfo">
-                    <div class="modal_content">
-                        <span class="close" onclick="closeModal('modalInfo')">&times;</span>
-                        <h2>Information</h2>
-                        <p>This will help track the Meta for AC Toons</p>
-                        
-                        <p>Instructions to change grade:</p>
-                        <ol>
-                            <li>Click on the toon's icon</li>   
-                            <li>Select the new grade</li>
-                            <li>Click save</li>
-                        </ol>
-                        <a href="newtoon.php" data-ajax="false">New Toon</a>
-                    </div>
-                </div>
+            <div class="main-cell main-header-cell">
+                <h2>Meta Tracker</h2>               
             </div>
             <div class="main-cell header-cell purple">
                 <div class="cell dark"></div>
@@ -360,7 +365,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
         </div>
 
     </div>
-
 </body>
 </html>
 
@@ -437,6 +441,11 @@ window.onclick = function(event) {
 
 // END TODO
 
+<?php 
+if($loggedIn == "true"){
+    if($rank >= 2){
+?>
+   
 
 // Connecting the sortables with the columns so we can drag-drop grade change
 $( ".dark-column" ).sortable({
@@ -526,6 +535,42 @@ function updateGrade() {
 	});
     
 }
+<?php
+    }else{
+?>
+$(document).ready(function(){	
+    $(".cell").on("tap",function(){
+        console.log("yes");
+        var cell = $(this).attr("cellid");
+        window.location.href='tooninfo.php?id='+cell;
+    }); 
+}); 
+<?php
+    }
+}else{
+        ?>
+$(document).ready(function(){	
+    $(".cell").on("tap",function(){
+        console.log("yes");
+        var cell = $(this).attr("cellid");
+        window.location.href='tooninfo.php?id='+cell;
+    }); 
+}); 
+<?php
+    
+}
+?>
 
+
+
+function openMenu() {
+    document.getElementById("menu").style.width = "250px";
+    document.getElementById("container").style.marginLeft = "250px";
+}
+
+function closeMenu() {
+    document.getElementById("menu").style.width = "0";
+    document.getElementById("container").style.marginLeft = "0";
+}
 </script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>

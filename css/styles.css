@@ -12,6 +12,7 @@ div {
     min-width: 1200px;
     width:100%;
     padding:20px 20px;
+    transition:margin-left .5s;
 }
 
 .row {
@@ -192,6 +193,12 @@ div {
 
 .header-cell {
     justify-content: center;
+}
+
+.main-header-cell {
+    justify-content: center;
+    flex-flow:column;
+    text-align: center;
 }
 
 .openModal {
@@ -644,6 +651,53 @@ outline: 2px solid #f00;
     margin-left:10px;
 }
 
+.ui-loader {
+    display: none !important;
+ }
+
+
+.menu {
+    height:100%;
+    width: 0;
+    position: fixed;
+    z-index: 1001;
+    top:0;
+    left:0;
+    background-color: #111111;
+    overflow-x: hidden;
+    padding-top: 50px;
+    transition: 0.5s;
+}
+
+.menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;    
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    color: #f1f1f1;
+}
+
+.menu .closebtn {
+    position: absolute;
+    top: 0;
+    right:25px;
+    font-size: 36px;
+    margin-left:50px;
+}
+
+@media screen and (max-height: 450px) {
+    .menu {padding-top: 15px;}
+    .menu a {font-size: 18px;}
+  }
+
+
+
+
 
 /*this is some test stuff i was thinking about but not done
 .menu {
@@ -697,6 +751,3 @@ outline: 2px solid #f00;
     }
   }
   */
-  .ui-loader {
-    display: none !important;
- }
