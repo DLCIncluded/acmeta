@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-include_once("dbConn.php");
+include_once("utils.php");
 
 //element id's
 //fire    = 1
@@ -152,3 +152,6 @@ if(isset($_GET['id'])){
         <input type="submit" value="Save Changes">
     </form>
 </div>
+<?php
+include("bottom.php");
+?>

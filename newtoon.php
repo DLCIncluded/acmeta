@@ -2,7 +2,6 @@
 include("utils.php");
 if($loggedIn=="true"){
 
-include("dbConn.php");
 if(isset($_POST['name'])){
     $name=$_POST['name'];
     $img=$_POST['img'];
@@ -21,7 +20,14 @@ if(isset($_POST['name'])){
 
 <link rel="stylesheet" href="css/styles.css">
 
-
+<style>
+    .container {
+        position: relative;
+        width: 500px;
+        min-width:500px;
+        margin:auto;
+    }
+</style>
 
 <div class="container">
     <form class="new-toon" action="#" method="POST">
@@ -111,5 +117,6 @@ if(isset($_POST['name'])){
 ?>
 	<p>You must be <a href="login.php">logged</a> in to view this page.</p>
 <?PHP
-	}
+    }
+    include("bottom.php");
 ?>

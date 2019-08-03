@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-include_once("dbConn.php");
+include_once("includes/dbConn.php");
 $br="<br>";
 
 if(isset($_GET['id'])){

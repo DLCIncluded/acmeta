@@ -7,7 +7,6 @@ include_once("dbConn.php");
 include_once("accountChecker.php"); // this way we can get the session username
 
 
-
 	if(isset($_POST['register'])){
 		//echo "register";
 		if($_POST['username'] != ''){
@@ -19,7 +18,7 @@ include_once("accountChecker.php"); // this way we can get the session username
 					if($_POST['email'] != ''){
 						
 						//If we get this far we should be good to process 
-						$username = $_POST['username'];
+						$username = strtolower($_POST['username']);
 						$email = $_POST['email'];
 						$password = $_POST['password'];
 						$password2 = $_POST['password2'];
@@ -42,9 +41,9 @@ include_once("accountChecker.php"); // this way we can get the session username
 									echo "successfully created account";
 									//account created lets log them in to make life easier
 									$_SESSION['username'] = $username;
-									$_SESSION['email'] = $email;									
+									$_SESSION['rank'] = $rank;									
 									
-									header("location: https://david-cary.com/testing/mike/");
+									header("location: $site");
 								}else{
 									echo $connection->error;
 								}
@@ -75,7 +74,7 @@ include_once("accountChecker.php"); // this way we can get the session username
 	if(isset($_POST['login'])){
 		if($_POST['username'] != ''){
 			
-				$username = $_POST['username'];
+				$username = strtolower($_POST['username']);
 				$password = $_POST['password'];
 				$query="SELECT * FROM users WHERE username='$username'";
 				
@@ -91,7 +90,7 @@ include_once("accountChecker.php"); // this way we can get the session username
 						$_SESSION['username'] = $row['username'];
 						$_SESSION['rank'] = $row['rank'];
 						echo "logged in";
-						header("location: https://david-cary.com/testing/mike");
+						header("location: $site");
 					}else {
 						echo "Invalid password";
 						//header("location: ".$site."info.php?msg=pass");
@@ -107,6 +106,49 @@ include_once("accountChecker.php"); // this way we can get the session username
 		
 		
 	}
+
 	
-	
+	if(isset($_POST['code'])){
+		echo "code";
+		if($_POST['username'] != ''){	
+			$username = strtolower($_POST['username']);
+			$query="SELECT * FROM users WHERE username='$username'";
+			
+			$result=$connection->query($query);
+			
+			if($result->num_rows == 1){
+				echo "found user";
+				$row=$result->fetch_assoc();
+				$email = $row['email'];
+				$code = md5(rand(0,100)); // generate random code
+
+				$sql = "UPDATE users SET resetcode='".$code."' WHERE username='".$username."'";
+				
+				if($connection->query($query)){
+					echo "sent to db";
+					
+
+					$to      = $email;
+					$subject = 'ACMeta Password reset';
+					$message = 'hello,  Please click the following link to complete your password reset: '.$site.'/passwordreset.php?code='.$code.'&username='.$username;
+					$message = wordwrap($message, 70, "\r\n");
+					$headers = 'From: webmaster@acmeta.dlcincluded.com' . "\r\n" .
+						'Reply-To: DONOTREPLY@acmeta.dlcincluded.com' . "\r\n" .
+						'X-Mailer: PHP/' . phpversion();
+
+					mail($to, $subject, $message, $headers);
+					echo "sent mail";
+					//header("location: $site/passwordreset.php?msg=sent");
+				}
+				
+				
+			} else {
+			echo "User not found";
+			}
+		
+		} else {
+			echo "Missing Username";
+		}
+	}
+
 ?>

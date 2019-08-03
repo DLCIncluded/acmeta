@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', '1');
-include("dbConn.php");
+include("includes/dbConn.php.php");
 if(isset($_GET["order"])) {
 	$order = explode(",",$_GET["order"]);
 	print_r($order);

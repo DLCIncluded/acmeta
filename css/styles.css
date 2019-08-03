@@ -1,6 +1,8 @@
 body {
     padding:0;
     margin:0;
+    background-color: rgb(27, 27, 27);
+    color: #ffffff;
 }
 div {
     box-sizing: border-box;
@@ -11,7 +13,6 @@ div {
     margin:auto;
     min-width: 1200px;
     width:100%;
-    padding:20px 20px;
     transition:margin-left .5s;
 }
 
@@ -314,7 +315,7 @@ div {
   }
   
   .modal_content {
-      background-color: #fefefe;
+      background-color: #3b3b3b;
       margin: auto;
       padding: 20px;
       border:1px solid #888;
@@ -690,12 +691,24 @@ outline: 2px solid #f00;
     margin-left:50px;
 }
 
+.menu-icon {
+    position:absolute;
+    top:-15px;
+    left:-15px;
+    z-index:999
+}
+
 @media screen and (max-height: 450px) {
     .menu {padding-top: 15px;}
     .menu a {font-size: 18px;}
   }
 
-
+.login-form {
+    position: relative;
+    width:250px;
+    margin:auto;
+    text-align: center;
+}
 
 
 

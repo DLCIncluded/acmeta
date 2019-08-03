@@ -30,7 +30,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
             //create the data for the cell
             $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'" ondblcflick="location.href=\'edittoon.php?id='.$id.'\'">';
-                $cell_data .= '<div class="icon">';
+                $cell_data .= '<div class="icon" cellid="'.$id.'">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon" alt="'. $name .'">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
                     $cell_data .= '<div class="element-star star-' . $star . '">';
@@ -44,46 +44,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 }
 ?>
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
-    <title>AC Meta Tracker</title>
-
-</head>
-<body>
-    <div id="menu" class="menu">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&times;</a>
-            
-            <a href="index.php" data-ajax="false">Home</a>
-            <?php 
-            
-            if($loggedIn=="true"){
-                ?>
-            <a href="logout.php" data-ajax="false">Logout</a>
-                <?php
-                if($rank >= 2){
-                ?>
-                <a href="#" data-ajax="false">Admins Only</a>
-                <a href="newtoon.php" data-ajax="false">New Toon</a>
-                <?php
-                }
-            }else{
-            ?>
-            <a href="login.php" data-ajax="false">Login</a>
-            <a href="register.php" data-ajax="false">Register</a>
-            <?php
-            }
-            ?>
-            
-    </div>
-    <a href="javascript:void(0)" onclick="openMenu()"><img src="img/assets/menu.png" alt="menu" width="30" style="position:absolute;margin-left:20px;margin-top:25px;z-index:999"/></a>
     <div id="container" class="container">
 
         <div class="row">
@@ -372,43 +332,6 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 
 <script>
 
-
-                    
-
-/*
-const menu = document.querySelector(".menu");
-let menuVisible = false;
-
-const toggleMenu = command => {
-  menu.style.display = command === "show" ? "block" : "none";
-  menuVisible = !menuVisible;
-};
-
-const setPosition = ({ top, left }) => {
-  menu.style.left = `${left}px`;
-  menu.style.top = `${top}px`;
-  toggleMenu("show");
-};
-
-window.addEventListener("click", e => {
-  if(menuVisible)toggleMenu("hide");
-});
-
-window.addEventListener("contextmenu", e => {
-  e.preventDefault();
-  const origin = {
-    left: e.pageX,
-    top: e.pageY
-  };
-  setPosition(origin);
-  return false;
-});
-
-*/
-
-
-
-
 function openModal($id){
     var modal = document.getElementById($id);
     modal.style.display = "block";
@@ -443,9 +366,8 @@ window.onclick = function(event) {
 
 <?php 
 if($loggedIn == "true"){
-    if($rank >= 2){
+    if($rank >= 2){//only run this js if they're logged in and an editor or higher
 ?>
-   
 
 // Connecting the sortables with the columns so we can drag-drop grade change
 $( ".dark-column" ).sortable({
@@ -469,13 +391,18 @@ $( ".wind-column" ).sortable({
 
 // when we move, run the updates and shoot to the updateorder.php handler
 $(document).ready(function(){	
-    $(".cell").on("tap",function(){
+    $(".icon").click(function(){
         console.log("yes");
         var cell = $(this).attr("cellid");
-        window.location.href='tooninfo.php?id='+cell;
-    });   
-
-	$(".reorder-gallery").sortable({		
+        //window.location.href='tooninfo.php?id='+cell;
+    }); 
+    $(".reorder-gallery").sortable({
+        start: function(event,ui){
+            //$(".icon").unbind("click");
+            ui.item.bind("click.prevent",
+                function(event) { event.preventDefault(); });
+                console.log('click');
+        },		
 		update: function(event,ui) {
             if (this === ui.item.parent()[0]) {
                 if (ui.sender !== null) {
@@ -491,8 +418,14 @@ $(document).ready(function(){
                     console.log("changing order");
                 }
             }
+            
+        },
+        stop: function(event, ui) {
+            //setTimeout(function(){ui.item.unbind("click.prevent");}, 300);
+            $( event.originalEvent.target ).one('click', function(e){ e.stopImmediatePropagation(); } );
         }
-	});  
+    });  
+      
 });
 
 
@@ -539,7 +472,7 @@ function updateGrade() {
     }else{
 ?>
 $(document).ready(function(){	
-    $(".cell").on("tap",function(){
+    $(".icon").click(function(){
         console.log("yes");
         var cell = $(this).attr("cellid");
         window.location.href='tooninfo.php?id='+cell;
@@ -550,7 +483,7 @@ $(document).ready(function(){
 }else{
         ?>
 $(document).ready(function(){	
-    $(".cell").on("tap",function(){
+    $(".icon").click(function(){
         console.log("yes");
         var cell = $(this).attr("cellid");
         window.location.href='tooninfo.php?id='+cell;
@@ -560,17 +493,7 @@ $(document).ready(function(){
     
 }
 ?>
-
-
-
-function openMenu() {
-    document.getElementById("menu").style.width = "250px";
-    document.getElementById("container").style.marginLeft = "250px";
-}
-
-function closeMenu() {
-    document.getElementById("menu").style.width = "0";
-    document.getElementById("container").style.marginLeft = "0";
-}
 </script>
- <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+<?php
+include("bottom.php");
+?>
