@@ -1,8 +1,24 @@
 <?PHP
 	include("utils.php");
+<<<<<<< HEAD
 	if(!isset($_GET['code']) && !isset($_GET['username'])){ //if we dont have username/code in url
 ?>	
 <div class="login-form">
+=======
+?>
+<div class="login-form">
+<?php
+if(isset($_GET['msg'])){
+	if($_GET['msg'] =="sent"){
+		echo "<p>We have sent you an email with a link to reset your password. Please check your junk mail</p>";
+	}else if($_GET['msg'] == "reset"){
+		echo "<p>Your Password has been reset, please try to <a href='login.php'>login</a>.</p>";
+	}
+}
+	if(!isset($_GET['code']) && !isset($_GET['username'])){ //if we dont have username/code in url
+?>	
+
+>>>>>>> Password reset funct done
 
 	<form action="includes/accountManager.php" method="POST">
 		<p>Enter your username and we will send you an email to reset your password</p>
