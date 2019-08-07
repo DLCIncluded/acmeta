@@ -11,6 +11,8 @@ include_once("utils.php");
 //dark    = 6
 
 //grades SS, S, A, B, C, D
+if($loggedIn == "true"){
+    if($rank >= 3){//only run this js if they're logged in and an editor or higher
 
 if(isset($_GET['id'])){
     $id = $_GET['id'];
@@ -26,7 +28,6 @@ if(isset($_GET['id'])){
         $job = $row['job'];
         $job1 = $row['job1'];
         $job2 = $row['job2'];
-        $job3 = $row['job3'];
         $star = $row['star'];
         $element = $row['element'];
         $grade = $row['grade'];
@@ -68,9 +69,7 @@ if(isset($_GET['id'])){
         ?>
 
         <form action="includes/functions.php" method="POST" enctype="multipart/form-data">
-            <h1>
-                Edit Toon (not functional yet)
-            </h1>
+            <h1>Edit Toon</h1>
             <p><a href="index.php">Home</a> | <a href="tooninfo.php?id=<?php echo $id; ?>">Info Page</a></p><br>
 
             <input type="text" name="name" placeholder="Name" value="<?php echo $name; ?>"/><br><br>
@@ -83,9 +82,6 @@ if(isset($_GET['id'])){
                 </div>
                 <div class="job-item">
                     <p>Job 3:</p> <img src="img/jobs/<?php echo $job2; ?>" alt="job3"> <a href="setjob.php?id=<?php echo $id; ?>&job=2">Change</a>
-                </div>
-                <div class="job-item">
-                    <p>Job 4:</p> <img src="img/jobs/<?php echo $job3; ?>" alt="job4"> <a href="setjob.php?id=<?php echo $id; ?>&job=3">Change</a>
                 </div>
             </div>
             <div class="star-box">
@@ -145,5 +141,7 @@ if(isset($_GET['id'])){
     </div>
 </div>
 <?php
+    }
+}
 include("bottom.php");
 ?>

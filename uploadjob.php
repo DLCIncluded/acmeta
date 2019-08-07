@@ -9,7 +9,7 @@ include("utils.php");
 
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
-    $target_dir = "img/large/";
+    $target_dir = "img/jobs/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -46,15 +46,7 @@ if(isset($_POST["submit"])) {
     } else {
         if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
             $largeimg=basename($_FILES["fileToUpload"]["name"]);
-            $id=$_POST['id'];
             echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-            $sql = "UPDATE toons SET largeimg='".$largeimg."' WHERE id='".$id."'";
-            if($connection->query($sql)){
-                echo "successfully updated $id";
-                header("location: edittoon.php?id=$id");
-            }else{
-                echo $connection->error;
-            }
         } else {
             echo "Sorry, there was an error uploading your file.";
         }
@@ -65,11 +57,10 @@ if(isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html>
 <body>
-<h2>Info Image</h2>
+<h2>New Job</h2>
 <form action="#" method="post" enctype="multipart/form-data">
     Select image to upload:
     <input type="file" name="fileToUpload" id="fileToUpload">
-    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
     <input type="submit" value="Upload Image" name="submit">
 </form>
 

@@ -27,7 +27,7 @@ include_once("includes/accountChecker.php");
                 ?>
             <a href="logout.php" data-ajax="false">Logout</a>
                 <?php
-                if($rank >= 2){
+                if($rank >= 3){
                 ?>
                 <a href="#" data-ajax="false">Admins Only</a>
                 <a href="newtoon.php" data-ajax="false">New Toon</a>

@@ -57,7 +57,10 @@
                     <input type="hidden" name="jobid" value="<?php echo $job; ?>"/>
                     <input type="hidden" name="id" value="<?php echo $id; ?>"/>
                     <input type="submit" value="Save" name="setjob">
+                    <br><br>
+                    If the job is not in the list, you can upload a new one <a href="uploadjob.php">here</a>.
                 </div>
+
             </form>
 <?php
         }

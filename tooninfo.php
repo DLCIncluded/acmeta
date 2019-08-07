@@ -17,7 +17,6 @@ if(isset($_GET['id'])){
         $job = $row['job'];
         $job1 = $row['job1'];
         $job2 = $row['job2'];
-        $job3 = $row['job3'];
         $star = $row['star'];
         $element = $row['element'];
         $grade = $row['grade'];
@@ -76,7 +75,6 @@ if(isset($_GET['id'])){
                 <img src="img/jobs/<?php echo $job; ?>">
                 <img src="img/jobs/<?php echo $job1; ?>">
                 <img src="img/jobs/<?php echo $job2; ?>">
-                <img src="img/jobs/<?php echo $job3; ?>">
             </div>
         </div>
         <div class="toon-info-left">
@@ -105,7 +103,7 @@ if(isset($_GET['id'])){
 
 <?php
     if($loggedIn == "true"){
-        if($rank >= 2){//only run this js if they're logged in and an editor or higher
+        if($rank >= 3){//only run this js if they're logged in and an editor or higher
 ?>
     <p><a href="edittoon.php?id=<?php echo $id; ?>">Edit</a></p>
 <?php
