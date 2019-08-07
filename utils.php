@@ -15,7 +15,6 @@ include_once("includes/accountChecker.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="js/jquery.ui.touch-punch.min.js"></script>
     <title>AC Meta Tracker</title>
-
 </head>
 <body>
     <div id="menu" class="menu">

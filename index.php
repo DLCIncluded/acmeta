@@ -29,7 +29,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
             $grade = $row['grade'];
 
             //create the data for the cell
-            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'" ondblcflick="location.href=\'edittoon.php?id='.$id.'\'">';
+            $cell_data .= '<div class="cell ui-sortable-handle" cellid="'.$id.'" grade="'.$grade.'">';
                 $cell_data .= '<div class="icon" cellid="'.$id.'">';
                     $cell_data .= '<img src="img/toons/' . $img . '" alt="alfr" class="toon" alt="'. $name .'">';
                     $cell_data .= '<img src="img/jobs/' . $job . '" alt="job-icon" class="job-icon">';
@@ -37,6 +37,7 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
                         $cell_data .= '<div class="element-icon element-' . $element . '"></div>';
                     $cell_data .= '</div>';
                 $cell_data .= '</div>';
+               // $cell_data .= '<a href="edittoon.php?id='.$id.'" style="z-index:999; opacity:1;">'.$name.'</a>';
             $cell_data .= '</div>';
         }
     }
@@ -329,7 +330,14 @@ function pullContent($grd,$ele) {//function to pull the info from the DB
 </html>
 
 
+<script type="text/javascript">
 
+if (screen.width < 980) { 
+    document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>');  
+   
+ } 
+
+</script>
 <script>
 
 function openModal($id){
@@ -394,15 +402,10 @@ $(document).ready(function(){
     $(".icon").click(function(){
         console.log("yes");
         var cell = $(this).attr("cellid");
-        //window.location.href='tooninfo.php?id='+cell;
+        window.location.href='tooninfo.php?id='+cell;
     }); 
     $(".reorder-gallery").sortable({
-        start: function(event,ui){
-            //$(".icon").unbind("click");
-            ui.item.bind("click.prevent",
-                function(event) { event.preventDefault(); });
-                console.log('click');
-        },		
+        helper : 'clone',
 		update: function(event,ui) {
             if (this === ui.item.parent()[0]) {
                 if (ui.sender !== null) {
@@ -418,11 +421,6 @@ $(document).ready(function(){
                     console.log("changing order");
                 }
             }
-            
-        },
-        stop: function(event, ui) {
-            //setTimeout(function(){ui.item.unbind("click.prevent");}, 300);
-            $( event.originalEvent.target ).one('click', function(e){ e.stopImmediatePropagation(); } );
         }
     });  
       

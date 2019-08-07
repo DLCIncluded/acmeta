@@ -67,7 +67,7 @@ if(isset($_GET['id'])){
             echo $cell_data;
         ?>
 
-        <form action="includes/functions.php" method="POST" enctype="multipart/form-data">
+        <form action="includes/functions2.php" method="POST" enctype="multipart/form-data">
             <h1>
                 Edit Toon (not functional yet)
             </h1>
