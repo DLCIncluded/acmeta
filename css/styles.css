@@ -693,8 +693,8 @@ outline: 2px solid #f00;
 
 .menu-icon {
     position:absolute;
-    top:-15px;
-    left:-15px;
+    top:0px;
+    left:0x;
     z-index:999
 }
 

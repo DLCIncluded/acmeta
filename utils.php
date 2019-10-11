@@ -31,6 +31,7 @@ include_once("includes/accountChecker.php");
                 ?>
                 <a href="#" data-ajax="false">Admins Only</a>
                 <a href="newtoon.php" data-ajax="false">New Toon</a>
+                <a href="deletetoon.php" data-ajax="false">Delete Toon</a>
                 <?php
                 }
             }else{
