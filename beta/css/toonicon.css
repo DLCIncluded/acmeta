@@ -1,0 +1,29 @@
+.icon {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.toon {
+    width:48px;
+    height:auto;
+    border-radius: 20px;
+}
+
+
+.icon::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top:0;
+    left: 0;
+    bottom:0;
+    right:0;
+    z-index: 3;
+    background: url('../img/assets/unit-border.png') no-repeat;
+    background-size: 48px;
+}

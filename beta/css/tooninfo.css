@@ -1,0 +1,44 @@
+.toon-info-container {
+    position: relative;
+    width:80%;
+    margin:auto;
+    margin-top: 20px;
+}
+
+.toon-info-top {
+    display:flex;
+}
+
+.toon-info h1 {
+    margin-top: 0;
+    margin-bottom:0;
+}
+.toon-img {
+    margin-right: 10px;
+}
+.toon-info h2 {
+    margin-top: 0;
+    margin-bottom:0;
+}
+.toon-info img {
+    width:48px;
+}
+
+.toon-info-left {
+    float:left;
+    position: relative;
+    width:60%;
+}
+.toon-info-img-large img{
+    float:right;
+    width:400px;
+    border-radius: 50%;
+    shape-outside: circle();
+}
+.toon-info-right {
+    float:right;
+    width:39%;
+}
+.toon-info-builds {
+    /*column-count: 2;*/
+}

@@ -1,0 +1,105 @@
+.element-star {
+    position: absolute;
+    left: 0;
+    bottom:0;
+    right:0;
+    z-index: 4;
+}
+
+.element-star::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 17px;
+    bottom: 0;
+    z-index: 8;
+    background-image: url('../img/assets/unit-stars.png');
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 40px;
+    background-size: 600%;
+}
+
+.star-1::after {
+    background-position: 0 0!important;
+}
+
+.star-2::after {
+    background-position: 20% 0;
+}
+
+.star-3::after {
+    background-position: 40% 0;
+}
+
+.star-4::after {
+    background-position: 60% 0;
+}
+
+.star-5::after {
+    background-position: 80% 0;
+}
+
+.star-box {
+    display:flex;
+    margin-top:20px;
+}
+
+.stars-1 {
+    background-image: url('../img/assets/unit-stars.png');
+    background-position: 0 0;
+    width:60px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 600%;
+    margin-bottom:5px;
+    margin-left:10px;
+    padding:0;
+}
+
+.stars-2 {
+    background-image: url('../img/assets/unit-stars.png');
+    background-position: 20% 0;
+    width:60px;
+    height:25px;
+    background-repeat: no-repeat;
+    background-size: 600%;
+    margin-bottom:5px;   
+    margin-left:10px;
+    height:20px;
+}
+
+.stars-3 {
+    background-image: url('../img/assets/unit-stars.png');
+    background-position: 40% 0;
+    width:60px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 600%;
+    margin-bottom:5px;
+    margin-left:10px;
+}
+
+.stars-4 {
+    background-image: url('../img/assets/unit-stars.png');
+    background-position: 60% 0;
+    width:60px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 600%;
+    margin-bottom:5px;
+    margin-left:10px;
+}
+
+.stars-5 {
+    background-image: url('../img/assets/unit-stars.png');
+    background-position: 80% 0;
+    width:60px;
+    height:20px;
+    background-repeat: no-repeat;
+    background-size: 600%;
+    margin-bottom:5px;
+    margin-left:10px;
+}

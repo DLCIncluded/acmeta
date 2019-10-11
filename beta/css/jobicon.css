@@ -1,0 +1,9 @@
+
+.job-icon {
+    position: absolute;
+    top: -8px;
+    right: -6px;
+    height: 24px;
+    width: 24px;
+    z-index: 5;
+}
