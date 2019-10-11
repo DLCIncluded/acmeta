@@ -1,0 +1,22 @@
+{
+  "name": "acmeta-beta",
+  "version": "1.0.0",
+  "description": "beta for acmeta tracker",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DLCIncluded/acmeta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DLCIncluded/acmeta/issues"
+  },
+  "homepage": "https://github.com/DLCIncluded/acmeta#readme",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}

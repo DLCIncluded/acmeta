@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 1);
-include_once("utils.php");
+include_once("top.php");
 $br="<br>";
 
 if(isset($_GET['id'])){

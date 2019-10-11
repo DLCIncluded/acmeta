@@ -1,5 +1,6 @@
 <?PHP
-	include("utils.php");
+	include("top.php");
+	echo '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">';
 ?>
 <div class="login-form">
 <?php

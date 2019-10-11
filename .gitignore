@@ -3,4 +3,5 @@
 /img
 /beta/img
 /beta/phpmailer
-beta/js/jquery.ui.touch-punch.min.js
+/beta/js/jquery.ui.touch-punch.min.js
+/beta/node_modules

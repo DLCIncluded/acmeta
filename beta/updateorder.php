@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', '1');
-include("includes/dbConn.php.php");
+include("includes/dbConn.php");
 if(isset($_GET["order"])) {
 	$order = explode(",",$_GET["order"]);
 	print_r($order);
@@ -23,7 +23,7 @@ if(isset($_POST["data"])) {
 	//print_r($grade);
 	foreach ($grade as &$value) {
 		//$test = json_encode($value);
-		//print_r($value);
+		print_r($value);
 		$id = $value->id;
 		$grd = $value->grade;
 		//echo $test1 ." : ". $test2;

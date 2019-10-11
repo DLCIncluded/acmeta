@@ -23,6 +23,13 @@ div {
     justify-content: center;
 }
 
+.cell {
+    padding:5px;
+    margin-bottom: 3px;
+    width:53px;
+    height:53px;
+}
+
 .openModal {
     text-decoration: underline;
 }
@@ -39,7 +46,7 @@ div {
 
 .info:before {
     content:"i";
-    left:3px;
+    left: 4px;
     width:16px;
     height:16px;
     margin-top:-8px;
@@ -189,7 +196,7 @@ outline: 2px solid #f00;
     color: #f1f1f1;
 }
 
-.menu .closebtn {
+.menu .closebtn { 
     position: absolute;
     top: 0;
     right:25px;
@@ -199,8 +206,8 @@ outline: 2px solid #f00;
 
 .menu-icon {
     position:absolute;
-    top:5px;
-    left:5px;
+    top:0px;
+    left:0px;
     z-index:999
 }
 
@@ -219,24 +226,4 @@ outline: 2px solid #f00;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.center-text {
-    text-align: center;
-    position:relative;
-}
-.cell {
-    display: inline-block;
-}
-
-.table-container-small{
-    width:16.5%;
-    float:left;
-    margin-top:10px;
-}
-
-.select-menu {
-    height:215px;
-    display:none;
-    margin-bottom:15px;
 }
