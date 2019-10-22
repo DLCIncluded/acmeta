@@ -18,6 +18,10 @@
             <?php
             if(isset($_GET['display'])){
                 if($_GET['display']=="full"){
+                }else{
+                ?>
+                <h3 class=""><a href="beta.php?display=full">All Units</a></h3>
+                <?php
                 }
             }else{
                 ?>
@@ -28,7 +32,7 @@
         </div>
     </div>
     
-    <table class="reorder-gallery">
+    <table class="reorder-gallery dark-head">
         <tr>
             <td class="">SS</td>
             <td class="dark-sortable sortable" grade="ss">
